@@ -35,7 +35,7 @@ var scenes;
         Menu.prototype._setupCanvas = function () {
             canvas.style.width = "100%";
             canvas.setAttribute("height", config.Screen.HEIGHT.toString());
-            canvas.style.backgroundColor = "#6c8df0";
+            canvas.style.backgroundColor = "#f7f0e7";
         };
         /**
          * This method sets up default values for class member variables
@@ -72,7 +72,7 @@ var scenes;
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
             this._startButton.regX = this._startButton.getBounds().width * 0.5;
             this._startButton.regY = this._startButton.getBounds().height * 0.5;
-            this._startButton.x = config.Screen.WIDTH * 0.5 - 300;
+            this._startButton.x = config.Screen.WIDTH * 0.5;
             this._startButton.y = (config.Screen.HEIGHT * 0.5) + 100;
             this._stage.addChild(this._startButton);
             this._startButton.on("mouseover", function (event) {
@@ -89,8 +89,8 @@ var scenes;
             this._instructionsButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
             this._instructionsButton.regX = this._instructionsButton.getBounds().width * 0.5;
             this._instructionsButton.regY = this._instructionsButton.getBounds().height * 0.5;
-            this._instructionsButton.x = config.Screen.WIDTH * 0.5;
-            this._instructionsButton.y = (config.Screen.HEIGHT * 0.5) + 100;
+            this._instructionsButton.x = config.Screen.WIDTH * 0.5 - 200;
+            this._instructionsButton.y = (config.Screen.HEIGHT * 0.5) + 180;
             this._stage.addChild(this._instructionsButton);
             this._instructionsButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
@@ -106,8 +106,8 @@ var scenes;
             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
             this._exitButton.regX = this._exitButton.getBounds().width * 0.5;
             this._exitButton.regY = this._exitButton.getBounds().height * 0.5;
-            this._exitButton.x = config.Screen.WIDTH * 0.5 + 300;
-            this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 100;
+            this._exitButton.x = config.Screen.WIDTH * 0.5 + 200;
+            this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 180;
             this._stage.addChild(this._exitButton);
             this._exitButton.on("mouseover", function (event) {
                 event.target.alpha = 0.7;
