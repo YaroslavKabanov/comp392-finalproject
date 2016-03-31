@@ -1,7 +1,7 @@
 {
-  "name": "comp392-assignment3-kabanov-bilokhvost",
+  "name": "comp392-group-project-kabanov-bilokhvost-verma",
   "version": "1.0.0",
-  "description": "COMP392-Assignment 3 (Kabanov, Bilokhvost) for Centennial College",
+  "description": "COMP392-Group Project (Kabanov, Bilokhvost, Verma) for Centennial College",
   "main": "game.js",
   "dependencies": {
     "typescript": "^1.8.7"
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bilokhvost/comp392-assignment3.git"
+    "url": "git+https://github.com/YaroslavKabanov/comp392-finalproject"
   },
   "author": "Tom Tsiliopoulos",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bilokhvost/comp392-assignment3/issues"
+    "url": "https://github.com/YaroslavKabanov/comp392-finalproject/issues"
   },
-  "homepage": "https://github.com/bilokhvost/comp392-assignment3#readme"
+  "homepage": "https://github.com/YaroslavKabanov/comp392-finalproject"
 }
