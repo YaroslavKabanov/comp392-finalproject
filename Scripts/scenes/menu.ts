@@ -77,7 +77,7 @@ module scenes {
             this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
             this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
             this._gameLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameLabel.y = config.Screen.HEIGHT * 0.5-150;
+            this._gameLabel.y = config.Screen.HEIGHT * 0.5 - 150;
             this._stage.addChild(this._gameLabel);
             //play button
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
@@ -100,10 +100,10 @@ module scenes {
                 changeScene();
             });
             //Instruction Button
-             this._instructionsButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
+            this._instructionsButton = new createjs.Bitmap(assets.getResult("InstructionsButton"));
             this._instructionsButton.regX = this._instructionsButton.getBounds().width * 0.5;
             this._instructionsButton.regY = this._instructionsButton.getBounds().height * 0.5;
-            this._instructionsButton.x = config.Screen.WIDTH * 0.5-200;
+            this._instructionsButton.x = config.Screen.WIDTH * 0.5 - 200;
             this._instructionsButton.y = (config.Screen.HEIGHT * 0.5) + 180;
             this._stage.addChild(this._instructionsButton);
 
@@ -120,10 +120,10 @@ module scenes {
                 changeScene();
             });
             //exit button
-             this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
+            this._exitButton = new createjs.Bitmap(assets.getResult("ExitButton"));
             this._exitButton.regX = this._exitButton.getBounds().width * 0.5;
             this._exitButton.regY = this._exitButton.getBounds().height * 0.5;
-            this._exitButton.x = config.Screen.WIDTH * 0.5+200;
+            this._exitButton.x = config.Screen.WIDTH * 0.5 + 200;
             this._exitButton.y = (config.Screen.HEIGHT * 0.5) + 180;
             this._stage.addChild(this._exitButton);
 

@@ -141,7 +141,6 @@ function gameLoop(): void {
     renderer.render(scene, camera);
 }
 
-
 // Setup default renderer
 function setupRenderer(): void {
     renderer = new Renderer({ antialias: true });

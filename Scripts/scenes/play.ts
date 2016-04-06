@@ -11,5 +11,7 @@ module scenes {
      * @param havePointerLock {boolean}
      */
     export class Play extends scenes.Scene {
+      
+
     }
 }
