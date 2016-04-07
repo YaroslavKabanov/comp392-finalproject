@@ -53,8 +53,11 @@ var scene: scenes.Scene;
 var currentScene: number;
 var renderer: Renderer;
 var camera: PerspectiveCamera;
+var timeValue: number;
+var livesValue: number;
+var highScoreValue: number = 0;
 
-//var play: scenes.Play;
+var play: scenes.Play;
 var menu: scenes.Menu;
 //var over: scenes.Over;
 
@@ -62,10 +65,11 @@ var stats: Stats;
 var canvas: HTMLElement;
 var assets: createjs.LoadQueue;
 var manifest = [
-    { id: "land", src: "../../Assets/audio/Land.wav" },
-    { id: "hit", src: "../../Assets/audio/hit.wav" },
-    { id: "coin", src: "../../Assets/audio/coin.mp3" },
-    { id: "jump", src: "../../Assets/audio/Jump.wav" },
+     {id: "hit", src: "../../Assets/audio/hit.mp3"},
+       {id: "crystal", src: "../../Assets/audio/crystal.wav"},
+        {id: "enemy", src: "../../Assets/audio/enemy.mp3"},
+        {id: "background", src: "../../Assets/audio/background.mp3"},
+        {id: "finish", src: "../../Assets/audio/finish.mp3"},
     { id: "StartButton", src: "../../Assets/images/StartButton.png"},
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png"},
     { id: "ExitButton", src: "../../Assets/images/ExitButton.png"}
@@ -168,12 +172,12 @@ function changeScene(): void {
             scene = menu;
             console.log("Starting MENU Scene"); 
             break;
-      //  case config.Scene.PLAY:
-            // show the PLAY scene
-      //      play = new scenes.Play();
-      //      scene = play;
-      //      console.log("Starting PLAY Scene");
-      //      break;
+       case config.Scene.PLAY:
+            //show the PLAY scene
+            play = new scenes.Play();
+            scene = play;
+            console.log("Starting PLAY Scene");
+            break;
       //  case config.Scene.OVER:
             // show the game OVER scene           
        //     over = new scenes.Over();

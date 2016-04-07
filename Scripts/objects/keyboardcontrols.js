@@ -45,6 +45,9 @@ var objects;
                 case 32:
                     this.jump = true;
                     break;
+                case 81:
+                    this.paused = (this.paused) ? false : true;
+                    break;
             }
         };
         KeyboardControls.prototype.onKeyUp = function (event) {
