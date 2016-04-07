@@ -49,9 +49,8 @@ var scenes;
          */
         Play.prototype._initialize = function () {
             // initialize score and lives values
-            timeValue = 0;
-            livesValue = 6;
-            console.log(livesValue);
+            timeValue = 10;
+            livesValue = 5;
             // Create to HTMLElements
             this.blocker = document.getElementById("blocker");
             this.instructions = document.getElementById("instructions");
@@ -343,17 +342,6 @@ var scenes;
             this.add(this.player);
             console.log("Added Player to Scene");
         };
-        //used for random  cristal position generation
-        Play.prototype.setCenter = function (geometry) {
-            geometry.computeBoundingBox();
-            var bb = geometry.boundingBox;
-            var offset = new THREE.Vector3();
-            offset.addVectors(bb.min, bb.max);
-            offset.multiplyScalar(-0.5);
-            geometry.applyMatrix(new THREE.Matrix4().makeTranslation(offset.x, offset.y, offset.z));
-            geometry.computeBoundingBox();
-            return offset;
-        };
         // add crystal to the scene
         Play.prototype.addCrystalMesh = function () {
             var self = this;
@@ -368,7 +356,7 @@ var scenes;
                     self.crystals[count].castShadow = true;
                     self.crystals[count].name = "Crystal";
                     self.add(self.crystals[count]);
-                    console.log("Add Crystal");
+                    console.log("Added Coin " + count + " to the Scene");
                     self.setCrystalPosition(self.crystals[count]);
                 }
             });
