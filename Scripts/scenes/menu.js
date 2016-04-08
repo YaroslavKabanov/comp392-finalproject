@@ -99,7 +99,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._instructionsButton.on("click", function (event) {
-                currentScene = config.Scene.PLAY;
+                currentScene = config.Scene.INSTRUCTIONS;
                 changeScene();
             });
             //exit button

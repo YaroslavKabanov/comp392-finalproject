@@ -48,20 +48,27 @@ var scene;
 var currentScene;
 var renderer;
 var camera;
-//var play: scenes.Play;
+var timeValue;
+var livesValue;
+var highScoreValue = 0;
+var play;
 var menu;
+var instructions;
 //var over: scenes.Over;
 var stats;
 var canvas;
 var assets;
 var manifest = [
-    { id: "land", src: "../../Assets/audio/Land.wav" },
-    { id: "hit", src: "../../Assets/audio/hit.wav" },
-    { id: "coin", src: "../../Assets/audio/coin.mp3" },
-    { id: "jump", src: "../../Assets/audio/Jump.wav" },
+    { id: "hit", src: "../../Assets/audio/hit.mp3" },
+    { id: "crystal", src: "../../Assets/audio/crystal.wav" },
+    { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
+    { id: "background", src: "../../Assets/audio/background.mp3" },
+    { id: "finish", src: "../../Assets/audio/finish.mp3" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" }
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -141,6 +148,17 @@ function changeScene() {
             menu = new scenes.Menu();
             scene = menu;
             console.log("Starting MENU Scene");
+            break;
+        case config.Scene.PLAY:
+            //show the PLAY scene
+            play = new scenes.Play();
+            scene = play;
+            console.log("Starting PLAY Scene");
+            break;
+        case config.Scene.INSTRUCTIONS:
+            instructions = new scenes.Instructions();
+            scene = instructions;
+            console.log("Starting Instruction Scene");
             break;
     }
 }
