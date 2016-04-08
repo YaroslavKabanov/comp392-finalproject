@@ -66,19 +66,19 @@ var stats: Stats;
 var canvas: HTMLElement;
 var assets: createjs.LoadQueue;
 var manifest = [
-     {id: "hit", src: "../../Assets/audio/hit.mp3"},
-       {id: "crystal", src: "../../Assets/audio/crystal.wav"},
-        {id: "enemy", src: "../../Assets/audio/enemy.mp3"},
-        {id: "background", src: "../../Assets/audio/background.mp3"},
-        {id: "finish", src: "../../Assets/audio/finish.mp3"},
-    { id: "StartButton", src: "../../Assets/images/StartButton.png"},
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png"},
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png"},
-    { id: "BackButton", src: "../../Assets/images/BackButton.png"},
-    { id: "InstructionImage", src: "../../Assets/images/instruction.png"}
+    { id: "hit", src: "../../Assets/audio/hit.mp3" },
+    { id: "crystal", src: "../../Assets/audio/crystal.wav" },
+    { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
+    { id: "background", src: "../../Assets/audio/background.mp3" },
+    { id: "finish", src: "../../Assets/audio/finish.mp3" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
 ];
 
-  function preload(): void {
+function preload(): void {
     assets = new createjs.LoadQueue();
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
@@ -173,30 +173,27 @@ function changeScene(): void {
             // show the MENU scene
             menu = new scenes.Menu();
             scene = menu;
-            console.log("Starting MENU Scene"); 
+            console.log("Starting MENU Scene");
             break;
-       case config.Scene.PLAY:
+        case config.Scene.PLAY:
             //show the PLAY scene
             play = new scenes.Play();
             scene = play;
             console.log("Starting PLAY Scene");
             break;
-<<<<<<< HEAD
-=======
-       case config.Scene.INSTRUCTIONS:         
-           instructions = new scenes.Instructions();
-           scene = instructions;
-           console.log("Starting Instruction Scene");           
-           break;
->>>>>>> milan_branch
-      //  case config.Scene.OVER:
-            // show the game OVER scene           
-       //     over = new scenes.Over();
-       //     scene = over;
-       //     console.log("Starting OVER Scene");           
-         //   break;
+        case config.Scene.INSTRUCTIONS:
+            instructions = new scenes.Instructions();
+            scene = instructions;
+            console.log("Starting Instruction Scene");
+            break;
+
+        //  case config.Scene.OVER:
+        // show the game OVER scene           
+        //     over = new scenes.Over();
+        //     scene = over;
+        //     console.log("Starting OVER Scene");           
+        //   break;
     }
 }
 
 window.onload = preload;
- 

@@ -155,14 +155,11 @@ function changeScene() {
             scene = play;
             console.log("Starting PLAY Scene");
             break;
-<<<<<<< HEAD
-=======
         case config.Scene.INSTRUCTIONS:
             instructions = new scenes.Instructions();
             scene = instructions;
             console.log("Starting Instruction Scene");
             break;
->>>>>>> milan_branch
     }
 }
 window.onload = preload;
