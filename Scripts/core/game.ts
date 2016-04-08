@@ -59,6 +59,7 @@ var highScoreValue: number = 0;
 
 var play: scenes.Play;
 var menu: scenes.Menu;
+var instructions: scenes.Instructions;
 //var over: scenes.Over;
 
 var stats: Stats;
@@ -72,7 +73,9 @@ var manifest = [
         {id: "finish", src: "../../Assets/audio/finish.mp3"},
     { id: "StartButton", src: "../../Assets/images/StartButton.png"},
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png"},
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png"}
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png"},
+    { id: "BackButton", src: "../../Assets/images/BackButton.png"},
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png"}
 ];
 
   function preload(): void {
@@ -178,6 +181,14 @@ function changeScene(): void {
             scene = play;
             console.log("Starting PLAY Scene");
             break;
+<<<<<<< HEAD
+=======
+       case config.Scene.INSTRUCTIONS:         
+           instructions = new scenes.Instructions();
+           scene = instructions;
+           console.log("Starting Instruction Scene");           
+           break;
+>>>>>>> milan_branch
       //  case config.Scene.OVER:
             // show the game OVER scene           
        //     over = new scenes.Over();

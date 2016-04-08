@@ -53,6 +53,7 @@ var livesValue;
 var highScoreValue = 0;
 var play;
 var menu;
+var instructions;
 //var over: scenes.Over;
 var stats;
 var canvas;
@@ -65,7 +66,9 @@ var manifest = [
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" }
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -152,6 +155,14 @@ function changeScene() {
             scene = play;
             console.log("Starting PLAY Scene");
             break;
+<<<<<<< HEAD
+=======
+        case config.Scene.INSTRUCTIONS:
+            instructions = new scenes.Instructions();
+            scene = instructions;
+            console.log("Starting Instruction Scene");
+            break;
+>>>>>>> milan_branch
     }
 }
 window.onload = preload;
