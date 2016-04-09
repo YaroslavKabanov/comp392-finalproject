@@ -16,6 +16,7 @@ var config;
         Scene.MENU = 0;
         Scene.NEW = 1;
         Scene.OVER = 2;
+        Scene.INSTRUCTIONS = 3;
         Scene.INTERMEDIATE = 4;
         return Scene;
     }());

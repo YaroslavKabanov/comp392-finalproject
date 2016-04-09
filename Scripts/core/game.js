@@ -57,6 +57,7 @@ var scoreValue;
 var newsc;
 var menu;
 var intermediate;
+var instructions;
 //var over: scenes.Over;
 var stats;
 var canvas;
@@ -69,7 +70,9 @@ var manifest = [
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" }
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -161,6 +164,11 @@ function changeScene() {
             intermediate = new scenes.Intermediate();
             scene = intermediate;
             console.log("Starting INTERMEDIATE Scene");
+            break;
+        case config.Scene.INSTRUCTIONS:
+            instructions = new scenes.Instructions();
+            scene = instructions;
+            console.log("Starting Instruction Scene");
             break;
     }
 }

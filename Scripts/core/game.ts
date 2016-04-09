@@ -63,6 +63,7 @@ var scoreValue: number;
 var newsc: scenes.New;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
+var instructions: scenes.Instructions;
 //var over: scenes.Over;
 
 var stats: Stats;
@@ -76,7 +77,9 @@ var manifest = [
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" }
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
 ];
 
 function preload(): void {
@@ -176,18 +179,27 @@ function changeScene(): void {
             scene = menu;
             console.log("Starting MENU Scene");
             break;
+
         case config.Scene.NEW:
             //show the PLAY scene
             newsc = new scenes.New();
             scene = newsc;
             console.log("Starting PLAY Scene");
             break;
+
         case config.Scene.INTERMEDIATE:
             //show the INTERMEDIATE scene
             intermediate = new scenes.Intermediate();
             scene = intermediate;
             console.log("Starting INTERMEDIATE Scene");
             break;
+
+        case config.Scene.INSTRUCTIONS:
+            instructions = new scenes.Instructions();
+            scene = instructions;
+            console.log("Starting Instruction Scene");
+            break;
+
         //  case config.Scene.OVER:
         // show the game OVER scene           
         //     over = new scenes.Over();
@@ -198,4 +210,3 @@ function changeScene(): void {
 }
 
 window.onload = preload;
- 

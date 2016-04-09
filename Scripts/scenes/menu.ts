@@ -116,7 +116,7 @@ module scenes {
             });
 
             this._instructionsButton.on("click", (event: createjs.MouseEvent) => {
-                currentScene = config.Scene.PLAY;
+                currentScene = config.Scene.INSTRUCTIONS;
                 changeScene();
             });
             //exit button
@@ -136,7 +136,7 @@ module scenes {
             });
 
             this._exitButton.on("click", (event: createjs.MouseEvent) => {
-                currentScene = config.Scene.PLAY;
+                currentScene = config.Scene.NEW;
                 changeScene();
             });
         }
