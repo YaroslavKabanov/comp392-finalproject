@@ -24,14 +24,16 @@ import PerspectiveCamera = THREE.PerspectiveCamera;
 import BoxGeometry = THREE.BoxGeometry;
 import CubeGeometry = THREE.CubeGeometry;
 import PlaneGeometry = THREE.PlaneGeometry;
+import SphereGeometry = THREE.SphereGeometry;
 import Geometry = THREE.Geometry;
-import Line = THREE.Line;
 import AxisHelper = THREE.AxisHelper;
 import LambertMaterial = THREE.MeshLambertMaterial;
 import MeshBasicMaterial = THREE.MeshBasicMaterial;
-import Material = THREE.Material;
 import LineBasicMaterial = THREE.LineBasicMaterial;
 import PhongMaterial = THREE.MeshPhongMaterial;
+import Material = THREE.Material;
+import Texture = THREE.Texture;
+import Line = THREE.Line;
 import Mesh = THREE.Mesh;
 import Object3D = THREE.Object3D;
 import SpotLight = THREE.SpotLight;
@@ -40,7 +42,6 @@ import AmbientLight = THREE.AmbientLight;
 import Color = THREE.Color;
 import Vector3 = THREE.Vector3;
 import Face3 = THREE.Face3;
-
 import CScreen = config.Screen;
 import Clock = THREE.Clock;
 
@@ -56,26 +57,29 @@ var camera: PerspectiveCamera;
 var timeValue: number;
 var livesValue: number;
 var highScoreValue: number = 0;
+var scoreValue: number;
 
-var play: scenes.Play;
+
+var newsc: scenes.New;
 var menu: scenes.Menu;
+var intermediate:scenes.Intermediate;
 //var over: scenes.Over;
 
 var stats: Stats;
 var canvas: HTMLElement;
 var assets: createjs.LoadQueue;
 var manifest = [
-     {id: "hit", src: "../../Assets/audio/hit.mp3"},
-       {id: "crystal", src: "../../Assets/audio/crystal.wav"},
-        {id: "enemy", src: "../../Assets/audio/enemy.mp3"},
-        {id: "background", src: "../../Assets/audio/background.mp3"},
-        {id: "finish", src: "../../Assets/audio/finish.mp3"},
-    { id: "StartButton", src: "../../Assets/images/StartButton.png"},
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png"},
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png"}
+    { id: "hit", src: "../../Assets/audio/hit.mp3" },
+    { id: "crystal", src: "../../Assets/audio/crystal.wav" },
+    { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
+    { id: "background", src: "../../Assets/audio/background.mp3" },
+    { id: "finish", src: "../../Assets/audio/finish.mp3" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" }
 ];
 
-  function preload(): void {
+function preload(): void {
     assets = new createjs.LoadQueue();
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
@@ -170,20 +174,26 @@ function changeScene(): void {
             // show the MENU scene
             menu = new scenes.Menu();
             scene = menu;
-            console.log("Starting MENU Scene"); 
+            console.log("Starting MENU Scene");
             break;
-       case config.Scene.PLAY:
+        case config.Scene.NEW:
             //show the PLAY scene
-            play = new scenes.Play();
-            scene = play;
+            newsc = new scenes.New();
+            scene = newsc;
             console.log("Starting PLAY Scene");
             break;
-      //  case config.Scene.OVER:
-            // show the game OVER scene           
-       //     over = new scenes.Over();
-       //     scene = over;
-       //     console.log("Starting OVER Scene");           
-         //   break;
+        case config.Scene.INTERMEDIATE:
+            //show the INTERMEDIATE scene
+            intermediate = new scenes.Intermediate();
+            scene = intermediate;
+            console.log("Starting INTERMEDIATE Scene");
+            break;
+        //  case config.Scene.OVER:
+        // show the game OVER scene           
+        //     over = new scenes.Over();
+        //     scene = over;
+        //     console.log("Starting OVER Scene");           
+        //   break;
     }
 }
 

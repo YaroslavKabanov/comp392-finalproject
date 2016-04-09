@@ -14,8 +14,9 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.PLAY = 1;
+        Scene.NEW = 1;
         Scene.OVER = 2;
+        Scene.INTERMEDIATE = 4;
         return Scene;
     }());
     config.Scene = Scene;

@@ -54,9 +54,9 @@ module objects {
                 case 32: /* Spacebar */
                     this.jump = true;
                     break;
-               case 81: /* pause */
-                    this.paused = (this.paused) ? false : true;
-                    break;
+             //  case 81: /* pause */
+               //     this.paused = (this.paused) ? false : true;
+                 //   break;
             }
         }
 

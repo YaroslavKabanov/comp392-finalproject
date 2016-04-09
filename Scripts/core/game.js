@@ -22,14 +22,16 @@ var PerspectiveCamera = THREE.PerspectiveCamera;
 var BoxGeometry = THREE.BoxGeometry;
 var CubeGeometry = THREE.CubeGeometry;
 var PlaneGeometry = THREE.PlaneGeometry;
+var SphereGeometry = THREE.SphereGeometry;
 var Geometry = THREE.Geometry;
-var Line = THREE.Line;
 var AxisHelper = THREE.AxisHelper;
 var LambertMaterial = THREE.MeshLambertMaterial;
 var MeshBasicMaterial = THREE.MeshBasicMaterial;
-var Material = THREE.Material;
 var LineBasicMaterial = THREE.LineBasicMaterial;
 var PhongMaterial = THREE.MeshPhongMaterial;
+var Material = THREE.Material;
+var Texture = THREE.Texture;
+var Line = THREE.Line;
 var Mesh = THREE.Mesh;
 var Object3D = THREE.Object3D;
 var SpotLight = THREE.SpotLight;
@@ -51,8 +53,10 @@ var camera;
 var timeValue;
 var livesValue;
 var highScoreValue = 0;
-var play;
+var scoreValue;
+var newsc;
 var menu;
+var intermediate;
 //var over: scenes.Over;
 var stats;
 var canvas;
@@ -146,11 +150,17 @@ function changeScene() {
             scene = menu;
             console.log("Starting MENU Scene");
             break;
-        case config.Scene.PLAY:
+        case config.Scene.NEW:
             //show the PLAY scene
-            play = new scenes.Play();
-            scene = play;
+            newsc = new scenes.New();
+            scene = newsc;
             console.log("Starting PLAY Scene");
+            break;
+        case config.Scene.INTERMEDIATE:
+            //show the INTERMEDIATE scene
+            intermediate = new scenes.Intermediate();
+            scene = intermediate;
+            console.log("Starting INTERMEDIATE Scene");
             break;
     }
 }

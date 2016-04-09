@@ -82,7 +82,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._startButton.on("click", function (event) {
-                currentScene = config.Scene.PLAY;
+                currentScene = config.Scene.NEW;
                 changeScene();
             });
             //Instruction Button
