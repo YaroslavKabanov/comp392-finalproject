@@ -19,11 +19,10 @@ var scenes;
     var LevelOne = (function (_super) {
         __extends(LevelOne, _super);
         /**
-          * @constructor
-          */
+         * @constructor
+         */
         function LevelOne() {
             _super.call(this);
-            this.crystalCount = 5;
             this._initialize();
             this.start();
         }
@@ -51,12 +50,14 @@ var scenes;
             // initialize score and lives values
             timeValue = 10;
             livesValue = 5;
+            console.log("Initialize score and lives values");
             // Create to HTMLElements
             this.blocker = document.getElementById("blocker");
             this.instructions = document.getElementById("instructions");
             this.blocker.style.display = "block";
             // setup canvas for menu scene
             this._setupCanvas();
+            this.crystalCount = 10;
             this.prevTime = 0;
             this.stage = new createjs.Stage(canvas);
             this.velocity = new Vector3(0, 0, 0);
@@ -87,11 +88,11 @@ var scenes;
             console.log("Added Time Label to stage");
         };
         /**
-               * Add a spotLight to the scene
-               *
-               * @method addSpotLight
-               * @return void
-               */
+         * Add a spotLight to the scene
+         *
+         * @method addSpotLight
+         * @return void
+         */
         LevelOne.prototype.addSpotLight = function () {
             // Spot Light
             this.spotLight = new SpotLight(0xffffff);
@@ -123,14 +124,25 @@ var scenes;
          * @return void
          */
         LevelOne.prototype.addGround = function () {
+            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/ground.jpg');
+            this.groundTexture.wrapS = THREE.RepeatWrapping;
+            this.groundTexture.wrapT = THREE.RepeatWrapping;
+            this.groundTexture.repeat.set(8, 8);
+            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/ground.png');
+            this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
+            this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
+            this.groundTextureNormal.repeat.set(8, 8);
+            this.groundMaterial = new PhongMaterial();
+            this.groundMaterial.map = this.groundTexture;
+            this.groundMaterial.bumpMap = this.groundTextureNormal;
+            this.groundMaterial.bumpScale = 0.2;
             this.groundGeometry = new BoxGeometry(61, 1, 52);
-            this.groundMaterial = Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../../Assets/images/ground.jpg') }), 0.4, 0);
-            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundMaterial, 0);
-            this.ground.position.set(0, 0, 0);
+            this.groundPhysicsMaterial = Physijs.createMaterial(this.groundMaterial, 0, 0);
+            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPhysicsMaterial, 0);
             this.ground.receiveShadow = true;
             this.ground.name = "Ground";
             this.add(this.ground);
-            console.log("Added Burnt Ground to scene");
+            console.log("Added Ground to scene");
         };
         LevelOne.prototype.addWall = function () {
             this.wallOne = new Physijs.BoxMesh(new BoxGeometry(51, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../../Assets/images/forest.jpg') }), 0, 0), 0);
@@ -329,23 +341,50 @@ var scenes;
             this.add(this.finish);
             console.log("Added finish to Scene");
         };
-        // Player Object
+        /**
+         * Adds the player controller to the scene
+         *
+         * @method addPlayer
+         * @return void
+         */
         LevelOne.prototype.addPlayer = function () {
-            this.playerGeometry = new BoxGeometry(2, 3, 2);
+            // Player Object
+            this.playerGeometry = new BoxGeometry(2, 4, 2);
             this.playerMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x00ff00 }), 0.4, 0);
             this.player = new Physijs.BoxMesh(this.playerGeometry, this.playerMaterial, 1);
             this.player.position.set(22, 15, -0.33);
             this.player.receiveShadow = true;
             this.player.castShadow = true;
-            this.player.setAngularFactor(new Vector3(0, 0, 0));
             this.player.name = "Player";
             this.add(this.player);
             console.log("Added Player to Scene");
         };
-        // add crystal to the scene
+        /**
+         * Add the death plane to the scene
+         *
+         * @method addDeathPlane
+         * @return void
+         */
+        LevelOne.prototype.addDeathPlane = function () {
+            this.deathPlaneGeometry = new BoxGeometry(200, 1, 200);
+            this.deathPlaneMaterial = Physijs.createMaterial(new MeshBasicMaterial({ color: 0xff0000 }), 0.4, 0.6);
+            // make deathPlane invisible during play - comment out next two lines during debugging
+            this.deathPlaneMaterial.transparent = true;
+            this.deathPlaneMaterial.opacity = 0;
+            this.deathPlane = new Physijs.BoxMesh(this.deathPlaneGeometry, this.deathPlaneMaterial, 0);
+            this.deathPlane.position.set(0, -10, 0);
+            this.deathPlane.name = "DeathPlane";
+            this.add(this.deathPlane);
+        };
+        /**
+         * This method adds a coin to the scene
+         *
+         * @method addCoinMesh
+         * @return void
+         */
         LevelOne.prototype.addCrystalMesh = function () {
             var self = this;
-            this.crystals = new Array(); // insttantiate a convex mesh array
+            this.crystals = new Array(); // Instantiate a convex mesh array
             var coinLoader = new THREE.JSONLoader().load("../../Assets/imported/crystal.json", function (geometry) {
                 var phongMaterial = new PhongMaterial({ color: 0x50c878 });
                 phongMaterial.emissive = new THREE.Color(0x50c878);
@@ -355,19 +394,22 @@ var scenes;
                     self.crystals[count].receiveShadow = true;
                     self.crystals[count].castShadow = true;
                     self.crystals[count].name = "Crystal";
-                    self.add(self.crystals[count]);
-                    console.log("Added Coin " + count + " to the Scene");
                     self.setCrystalPosition(self.crystals[count]);
+                    console.log("Added Crystal " + count + " to the Scene");
                 }
             });
-            console.log("Added CRYSTAL Mesh to Scene");
         };
-        //set crystal position
+        /**
+         * This method randomly sets the coin object's position
+         *
+         * @method setCoinPosition
+         * @return void
+         */
         LevelOne.prototype.setCrystalPosition = function (crystal) {
             var randomPointX = Math.floor(Math.random() * 30) - 10;
             var randomPointZ = Math.floor(Math.random() * 30) - 10;
             crystal.position.set(randomPointX, 10, randomPointZ);
-            scene.add(crystal);
+            this.add(crystal);
         };
         /**
          * Event Handler method for any pointerLockChange events
@@ -405,16 +447,22 @@ var scenes;
             }
         };
         /**
-        * Event handler for PointerLockError
-        *
-        * @method pointerLockError
-        * @return void
-        */
+         * Event handler for PointerLockError
+         *
+         * @method pointerLockError
+         * @return void
+         */
         LevelOne.prototype.pointerLockError = function (event) {
             this.instructions.style.display = '';
             console.log("PointerLock Error Detected!!");
         };
         // Check Controls Function
+        /**
+         * This method updates the player's position based on user input
+         *
+         * @method checkControls
+         * @return void
+         */
         LevelOne.prototype.checkControls = function () {
             if (this.keyboardControls.enabled) {
                 this.velocity = new Vector3();
@@ -438,6 +486,7 @@ var scenes;
                         this.velocity.y += 4000.0 * delta;
                         if (this.player.position.y > 4) {
                             this.isGrounded = false;
+                            createjs.Sound.play("jump");
                         }
                     }
                     this.player.setDamping(0.7, 0.1);
@@ -459,7 +508,6 @@ var scenes;
                 this.player.setAngularVelocity(new Vector3(0, 0, 0));
             }
         };
-        //updates the time left til the game is over and check the remaining time
         LevelOne.prototype.timeUpdate = function () {
             if (timeValue >= 1000) {
                 this.timeLabel.text = "GREAT JOB!!!";
@@ -494,6 +542,13 @@ var scenes;
                 }
             }
         };
+        // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++
+        /**
+         * The start method is the main method for the scene class
+         *
+         * @method start
+         * @return void
+         */
         LevelOne.prototype.start = function () {
             var _this = this;
             // setup the class context to use within events
@@ -531,17 +586,20 @@ var scenes;
             this.addAmbientLight();
             // Ground Object
             this.addGround();
+            this.addFinish();
+            // Add player controller
+            this.addPlayer();
             this.addWall();
             this.addPuddle();
-            this.addPlayer();
-            this.addFinish();
+            // Add custom coin imported from Blender
             this.addCrystalMesh();
-            // collision check
+            // Add death plane to the scene
+            this.addDeathPlane();
+            // Collision Check with player
             this.player.addEventListener('collision', function (eventObject) {
                 if (eventObject.name === "Ground") {
-                    createjs.Sound.play("hit");
-                    console.log("player hit the ground");
                     self.isGrounded = true;
+                    createjs.Sound.play("hit");
                 }
                 if (eventObject.name === "Crystal") {
                     timeValue += 5;
@@ -592,11 +650,11 @@ var scenes;
             this.simulate();
         };
         /**
-                * Camera Look function
-                *
-                * @method cameraLook
-                * @return void
-                */
+         * Camera Look function
+         *
+         * @method cameraLook
+         * @return void
+         */
         LevelOne.prototype.cameraLook = function () {
             var zenith = THREE.Math.degToRad(90);
             var nadir = THREE.Math.degToRad(-90);
@@ -604,28 +662,29 @@ var scenes;
             // Constrain the Camera Pitch
             camera.rotation.x = THREE.Math.clamp(cameraPitch, nadir, zenith);
         };
-        // Setup main game loop
+        /**
+         * @method update
+         * @returns void
+         */
         LevelOne.prototype.update = function () {
-            this.checkControls();
-            this.timeUpdate();
-            // make each crystal to rotate and be stable 
+            // make each crystal to rotate and be stable       
             this.crystals.forEach(function (crystal) {
                 crystal.setAngularFactor(new Vector3(0, 0, 0));
                 crystal.setAngularVelocity(new Vector3(0, 1, 0));
             });
             this.checkControls();
-            //this.enemyMoveAndLook();
+            this.timeUpdate();
             this.stage.update();
             if (!this.keyboardControls.paused) {
                 this.simulate();
             }
         };
         /**
-       * Responds to screen resizes
-       *
-       * @method resize
-       * @return void
-       */
+         * Responds to screen resizes
+         *
+         * @method resize
+         * @return void
+         */
         LevelOne.prototype.resize = function () {
             canvas.style.width = "100%";
             this.livesLabel.x = config.Screen.WIDTH * 0.1;

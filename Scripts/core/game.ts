@@ -60,7 +60,8 @@ var highScoreValue: number = 0;
 var scoreValue: number;
 
 
-var newsc: scenes.New;
+var levelOne: scenes.LevelOne;
+var levelThree: scenes.LevelThree;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
 var instructions: scenes.Instructions;
@@ -180,11 +181,11 @@ function changeScene(): void {
             console.log("Starting MENU Scene");
             break;
 
-        case config.Scene.NEW:
+        case config.Scene.LEVELONE:
             //show the PLAY scene
-            newsc = new scenes.New();
-            scene = newsc;
-            console.log("Starting PLAY Scene");
+            levelOne = new scenes.LevelOne();
+            scene = levelOne;
+            console.log("Starting LEVEL ONE Scene");
             break;
 
         case config.Scene.INTERMEDIATE:
@@ -198,6 +199,14 @@ function changeScene(): void {
             instructions = new scenes.Instructions();
             scene = instructions;
             console.log("Starting Instruction Scene");
+            break;
+            
+            
+        case config.Scene.LEVELTHREE:
+            //show the PLAY scene
+            levelThree = new scenes.LevelThree();
+            scene = levelThree;
+            console.log("Starting THREE Scene");
             break;
 
         //  case config.Scene.OVER:

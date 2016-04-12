@@ -10,7 +10,12 @@ module scenes {
      * @class Play
      * @param havePointerLock {boolean}
      */
-    export class New extends scenes.Scene {
+    export class LevelThree extends scenes.Scene {
+      /**
+ * The Scenes module is a namespace to reference all scene objects
+ * 
+ * @module scenes
+ */
         private havePointerLock: boolean;
         private element: any;
 
@@ -50,38 +55,8 @@ module scenes {
         private stage: createjs.Stage;
         private scoreLabel: createjs.Text;
         private livesLabel: createjs.Text;
-        // walls for the maze
-        private wallOne: Physijs.Mesh;
-        private wallTwo: Physijs.Mesh;
-        private wallThree: Physijs.Mesh;
-        private wallFour: Physijs.Mesh;
-        private wallFive: Physijs.Mesh;
-        private wallSix: Physijs.Mesh;
-        private wallSeven: Physijs.Mesh;
-        private wallEight: Physijs.Mesh;
-        private wallNine: Physijs.Mesh;
-        private wallTen: Physijs.Mesh;
-        private wallEleven: Physijs.Mesh;
-        private wallTwelve: Physijs.Mesh;
-        private wallThirteen: Physijs.Mesh;
-        private wallFourteen: Physijs.Mesh;
-        private wallFifteen: Physijs.Mesh;
-        private wallSixteen: Physijs.Mesh;
-        private wallSeventeen: Physijs.Mesh;
-        private wallEighteen: Physijs.Mesh;
-        private wallNineteen: Physijs.Mesh;
-        private wallTwenty: Physijs.Mesh;
-        private wallTwentyOne: Physijs.Mesh;
-    
-        //add lava puddles
-        private lavaPuddleOne: Physijs.Mesh;
-        private lavaPuddleTwo: Physijs.Mesh;
-        private lavaPuddleThree: Physijs.Mesh;
-        private lavaPuddleFour: Physijs.Mesh;
-        private lavaPuddleFive: Physijs.Mesh;
-        private lavaPuddleSix: Physijs.Mesh;
         
-        //add crystals
+          //add crystals
         private crystalGeometry: Geometry;
         private crystalMaterial: Physijs.Material;
         private crystal: Physijs.ConvexMesh;
@@ -236,7 +211,7 @@ module scenes {
             this.groundMaterial.bumpMap = this.groundTextureNormal;
             this.groundMaterial.bumpScale = 0.2;
 
-            this.groundGeometry = new BoxGeometry(61, 1, 52);
+            this.groundGeometry = new BoxGeometry(100, 1, 5);
             this.groundPhysicsMaterial = Physijs.createMaterial(this.groundMaterial, 0, 0);
             this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPhysicsMaterial, 0);
             this.ground.receiveShadow = true;
@@ -244,233 +219,8 @@ module scenes {
             this.add(this.ground);
             console.log("Added Ground to scene");
         }
-
-
-        private addWall(): void {
-            this.wallOne = new Physijs.BoxMesh(new BoxGeometry(51, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallOne.position.set(0.48, 5, 25.51);
-            this.wallOne.receiveShadow = true;
-            this.wallOne.castShadow = true;
-            this.wallOne.name = "wallOne";
-            this.add(this.wallOne);
-            console.log("Added wallOne to Scene");
-
-            this.wallTwo = new Physijs.BoxMesh(new BoxGeometry(1, 10, 51), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallTwo.position.set(26.56, 5, 0.5);
-            this.wallTwo.receiveShadow = true;
-            this.wallTwo.castShadow = true;
-            this.wallTwo.name = "wallTwo";
-            this.add(this.wallTwo);
-            console.log("Added wallTwo to Scene");
-
-            this.wallThree = new Physijs.BoxMesh(new BoxGeometry(51, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallThree.position.set(0.3, 5, -24.48);
-            this.wallThree.receiveShadow = true;
-            this.wallThree.castShadow = true;
-            this.wallThree.name = "wallThree";
-            this.add(this.wallThree);
-            console.log("Added wallThree to Scene");
-
-            this.wallFive = new Physijs.BoxMesh(new BoxGeometry(10, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallFive.position.set(20.8, 5, -10.8);
-            this.wallFive.receiveShadow = true;
-            this.wallFive.castShadow = true;
-            this.wallFive.name = "wallFive";
-            this.add(this.wallFive);
-            console.log("Added wallFive to Scene");
-
-            this.wallSix = new Physijs.BoxMesh(new BoxGeometry(18, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallSix.position.set(16.56, 5, -3.52);
-            this.wallSix.receiveShadow = true;
-            this.wallSix.castShadow = true;
-            this.wallSix.name = "wallSix";
-            this.add(this.wallSix);
-            console.log("Added wallSix to Scene");
-
-            this.wallSeven = new Physijs.BoxMesh(new BoxGeometry(1, 10, 15), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallSeven.position.set(8.13, 5, -10.61);
-            this.wallSeven.receiveShadow = true;
-            this.wallSeven.castShadow = true;
-            this.wallSeven.name = "wallSeven";
-            this.add(this.wallSeven);
-            console.log("Added wallSeven to Scene");
-
-            this.wallEight = new Physijs.BoxMesh(new BoxGeometry(10, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallEight.position.set(12.83, 5, -17.7);
-            this.wallEight.receiveShadow = true;
-            this.wallEight.castShadow = true;
-            this.wallEight.name = "wallEight";
-            this.add(this.wallEight);
-            console.log("Added wallEight to Scene");
-
-            this.wallNine = new Physijs.BoxMesh(new BoxGeometry(1, 10, 20), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallNine.position.set(9.47, 5, 15.82);
-            this.wallNine.receiveShadow = true;
-            this.wallNine.castShadow = true;
-            this.wallNine.name = "wallNine";
-            this.add(this.wallNine);
-            console.log("Added wallNine to Scene");
-
-            this.wallTen = new Physijs.BoxMesh(new BoxGeometry(10, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallTen.position.set(4.86, 5, 6.4);
-            this.wallTen.receiveShadow = true;
-            this.wallTen.castShadow = true;
-            this.wallTen.name = "wallTen";
-            this.add(this.wallTen);
-            console.log("Added wallTen to Scene");
-
-
-            this.wallEleven = new Physijs.BoxMesh(new BoxGeometry(1, 10, 10), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallEleven.position.set(0.35, 5, 1.89);
-            this.wallEleven.receiveShadow = true;
-            this.wallEleven.castShadow = true;
-            this.wallEleven.name = "wallEleven";
-            this.add(this.wallEleven);
-            console.log("Added wallEleven to Scene");
-
-            this.wallTwelve = new Physijs.BoxMesh(new BoxGeometry(1, 10, 16), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallTwelve.position.set(0.35, 5, -16.52);
-            this.wallTwelve.receiveShadow = true;
-            this.wallTwelve.castShadow = true;
-            this.wallTwelve.name = "wallTwelve";
-            this.add(this.wallTwelve);
-            console.log("Added wallTwelve to Scene");
-
-            this.wallThirteen = new Physijs.BoxMesh(new BoxGeometry(10, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallThirteen.position.set(-4.04, 5, 16.5);
-            this.wallThirteen.receiveShadow = true;
-            this.wallThirteen.castShadow = true;
-            this.wallThirteen.name = "wallThirteen";
-            this.add(this.wallThirteen);
-            console.log("Added wallThirteen to Scene");
-
-            this.wallFourteen = new Physijs.BoxMesh(new BoxGeometry(1, 10, 20), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallFourteen.position.set(-8.83, 5, 6.91);
-            this.wallFourteen.receiveShadow = true;
-            this.wallFourteen.castShadow = true;
-            this.wallFourteen.name = "wallFourteen";
-            this.add(this.wallFourteen);
-            console.log("Added wallFourteen to Scene");
-
-            this.wallFifteen = new Physijs.BoxMesh(new BoxGeometry(10, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallFifteen.position.set(-4.42, 5, -2.63);
-            this.wallFifteen.receiveShadow = true;
-            this.wallFifteen.castShadow = true;
-            this.wallFifteen.name = "wallFifteen";
-            this.add(this.wallFifteen);
-            console.log("Added wallFifteen to Scene");
-
-            this.wallSixteen = new Physijs.BoxMesh(new BoxGeometry(1, 10, 8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallSixteen.position.set(-7.07, 5, -20.41);
-            this.wallSixteen.receiveShadow = true;
-            this.wallSixteen.castShadow = true;
-            this.wallSixteen.name = "wallSixteen";
-            this.add(this.wallSixteen);
-            console.log("Added wallSixteen to Scene");
-
-            this.wallSeventeen = new Physijs.BoxMesh(new BoxGeometry(12, 10, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallSeventeen.position.set(-11.45, 5, -10.21);
-            this.wallSeventeen.receiveShadow = true;
-            this.wallSeventeen.castShadow = true;
-            this.wallSeventeen.name = "wallSeventeen";
-            this.add(this.wallSeventeen);
-            console.log("Added wallSeventeen to Scene");
-
-
-            this.wallEighteen = new Physijs.BoxMesh(new BoxGeometry(1, 10, 45), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallEighteen.position.set(-17.52, 5, 3.24);
-            this.wallEighteen.receiveShadow = true;
-            this.wallEighteen.castShadow = true;
-            this.wallEighteen.name = "wallEighteen";
-            this.add(this.wallEighteen);
-            console.log("Added wallEighteen to Scene");
-
-            this.wallNineteen = new Physijs.BoxMesh(new BoxGeometry(1, 10, 30), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallNineteen.position.set(-24.65, 5, -9.78);
-            this.wallNineteen.receiveShadow = true;
-            this.wallNineteen.castShadow = true;
-            this.wallNineteen.name = "wallNineteen";
-            this.add(this.wallNineteen);
-            console.log("Added wallNineteen to Scene");
-
-            this.wallTwenty = new Physijs.BoxMesh(new BoxGeometry(1, 10, 15), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallTwenty.position.set(-24.51, 5, 18.18);
-            this.wallTwenty.receiveShadow = true;
-            this.wallTwenty.castShadow = true;
-            this.wallTwenty.name = "wallTwenty";
-            this.add(this.wallTwenty);
-            console.log("Added wallTwenty to Scene");
-
-            this.wallTwentyOne = new Physijs.BoxMesh(new BoxGeometry(1, 10, 20), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
-            this.wallTwentyOne.position.set(18.01, 5, 6.67);
-            this.wallTwentyOne.receiveShadow = true;
-            this.wallTwentyOne.castShadow = true;
-            this.wallTwentyOne.name = " wallTwentyOne";
-            this.add(this.wallTwentyOne);
-            console.log("Added  wallTwentyOne to Scene");
-        }
-        //adding lava puddles tat kill the player
-        private addPuddle(): void {
-            this.lavaPuddleOne = new Physijs.BoxMesh(new BoxGeometry(5, 0.1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleOne.position.set(20.71, 0.5, 20.88);
-            this.lavaPuddleOne.receiveShadow = true;
-            this.lavaPuddleOne.castShadow = true;
-            this.lavaPuddleOne.name = "DeathPlane";
-            this.add(this.lavaPuddleOne);
-            console.log("Added  lavaPuddleOne to Scene");
-
-            this.lavaPuddleTwo = new Physijs.BoxMesh(new BoxGeometry(4, 0.1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleTwo.position.set(13.75, 0.5, -13.95);
-            this.lavaPuddleTwo.receiveShadow = true;
-            this.lavaPuddleTwo.castShadow = true;
-            this.lavaPuddleTwo.name = "DeathPlane";
-            this.add(this.lavaPuddleTwo);
-            console.log("Added  lavaPuddleTwo to Scene");
-
-            this.lavaPuddleThree = new Physijs.BoxMesh(new BoxGeometry(5, 0.1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleThree.position.set(9.57, 0.5, 1.71);
-            this.lavaPuddleThree.receiveShadow = true;
-            this.lavaPuddleThree.castShadow = true;
-            this.lavaPuddleThree.name = "DeathPlane";
-            this.add(this.lavaPuddleThree);
-            console.log("Added  lavaPuddleThree to Scene");
-
-            this.lavaPuddleFour = new Physijs.BoxMesh(new BoxGeometry(3, 0.1, 6), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleFour.position.set(0.64, 0.5, 11.55);
-            this.lavaPuddleFour.receiveShadow = true;
-            this.lavaPuddleFour.castShadow = true;
-            this.lavaPuddleFour.name = "DeathPlane";
-            this.add(this.lavaPuddleFour);
-            console.log("Added  lavaPuddleFour to Scene");
-
-            this.lavaPuddleFive = new Physijs.BoxMesh(new BoxGeometry(3, 0.1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleFive.position.set(-11.14, 0.5, -14.26);
-            this.lavaPuddleFive.receiveShadow = true;
-            this.lavaPuddleFive.castShadow = true;
-            this.lavaPuddleFive.name = "DeathPlane";
-            this.add(this.lavaPuddleFive);
-            console.log("Added  lavaPuddleFive to Scene");
-
-            this.lavaPuddleSix = new Physijs.BoxMesh(new BoxGeometry(3, 0.1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.lavaPuddleSix.position.set(-13.57, 0.5, 10.19);
-            this.lavaPuddleSix.receiveShadow = true;
-            this.lavaPuddleSix.castShadow = true;
-            this.lavaPuddleSix.name = "DeathPlane";
-            this.add(this.lavaPuddleSix);
-            console.log("Added  lavaPuddleSix to Scene");
-        }
-        //add finish box. when player collides the finish box, he wins and goes to viewPosition
-        private addFinish(): void {
-            this.finish = new Physijs.BoxMesh(new BoxGeometry(3, 2, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/finish.jpg') }), 0, 0), 0);
-            this.finish.position.set(-24.8, 1, 7.94);
-            this.finish.receiveShadow = true;
-            this.finish.castShadow = true;
-            this.finish.name = "Finish";
-            this.add(this.finish);
-            console.log("Added finish to Scene");
-        }
-
-        /**
+        
+          /**
          * Adds the player controller to the scene
          * 
          * @method addPlayer
@@ -489,68 +239,8 @@ module scenes {
             this.add(this.player);
             console.log("Added Player to Scene");
         }
-
-        /**
-         * Add the death plane to the scene
-         * 
-         * @method addDeathPlane
-         * @return void
-         */
-        private addDeathPlane(): void {
-            this.deathPlaneGeometry = new BoxGeometry(200, 1, 200);
-            this.deathPlaneMaterial = Physijs.createMaterial(new MeshBasicMaterial({ color: 0xff0000 }), 0.4, 0.6);
-            // make deathPlane invisible during play - comment out next two lines during debugging
-            this.deathPlaneMaterial.transparent = true;
-            this.deathPlaneMaterial.opacity = 0;
-
-            this.deathPlane = new Physijs.BoxMesh(this.deathPlaneGeometry, this.deathPlaneMaterial, 0);
-            this.deathPlane.position.set(0, -10, 0);
-            this.deathPlane.name = "DeathPlane";
-            this.add(this.deathPlane);
-        }
-
-        /**
-         * This method adds a coin to the scene
-         * 
-         * @method addCoinMesh
-         * @return void
-         */
-        private addCrystalMesh(): void {
-            var self = this;
-
-            this.crystals = new Array<Physijs.ConvexMesh>(); // Instantiate a convex mesh array
-
-            var coinLoader = new THREE.JSONLoader().load("../../Assets/imported/crystal.json", function(geometry: THREE.Geometry) {
-                var phongMaterial = new PhongMaterial({ color: 0x50c878 });
-                phongMaterial.emissive = new THREE.Color(0x50c878);
-                var coinMaterial = Physijs.createMaterial((phongMaterial), 0.4, 0.6);
-
-
-                for (var count: number = 0; count < self.crystalCount; count++) {
-                    self.crystals[count] = new Physijs.ConvexMesh(geometry, coinMaterial);
-                    self.crystals[count].receiveShadow = true;
-                    self.crystals[count].castShadow = true;
-                    self.crystals[count].name = "Crystal";
-                    self.setCrystalPosition(self.crystals[count]);
-                    console.log("Added Crystal " + count + " to the Scene");
-                }
-            });
-        }
-
-        /**
-         * This method randomly sets the coin object's position
-         * 
-         * @method setCoinPosition
-         * @return void
-         */
-        private setCrystalPosition(crystal: Physijs.ConvexMesh): void {
-            var randomPointX: number = Math.floor(Math.random() * 30) - 10;
-            var randomPointZ: number = Math.floor(Math.random() * 30) - 10;
-            crystal.position.set(randomPointX, 10, randomPointZ);
-            this.add(crystal);
-        }
-
-        /**
+        
+         /**
          * Event Handler method for any pointerLockChange events
          * 
          * @method pointerLockChange
@@ -749,21 +439,15 @@ module scenes {
             // Ground Object
             this.addGround();
 
-            this.addFinish();
+            //this.addFinish();
 
          
 
             // Add player controller
             this.addPlayer();
 
-            this.addWall();
-            this.addPuddle();
+     
 
-            // Add custom coin imported from Blender
-            this.addCrystalMesh();
-
-            // Add death plane to the scene
-            this.addDeathPlane();
 
             // Collision Check with player
             this.player.addEventListener('collision', function(eventObject) {
@@ -774,7 +458,7 @@ module scenes {
                if (eventObject.name === "Crystal") {
                 timeValue += 5;
                 self.remove(eventObject);
-                self.setCrystalPosition(eventObject);
+              //  self.setCrystalPosition(eventObject);
                 self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                 createjs.Sound.play("crystal");
             }
@@ -849,11 +533,7 @@ module scenes {
          * @returns void
          */
         public update(): void {
-                      // make each crystal to rotate and be stable       
-            this.crystals.forEach(crystal => {
-                crystal.setAngularFactor(new Vector3(0, 0, 0));
-                crystal.setAngularVelocity(new Vector3(0, 1, 0));
-            });
+                      
 
             this.checkControls();
         this.timeUpdate();

@@ -14,10 +14,11 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.NEW = 1;
+        Scene.LEVELONE = 1;
         Scene.OVER = 2;
         Scene.INSTRUCTIONS = 3;
         Scene.INTERMEDIATE = 4;
+        Scene.LEVELTHREE = 5;
         return Scene;
     }());
     config.Scene = Scene;
