@@ -324,7 +324,7 @@ module scenes {
         }
             
             private addBridges():void{
-            this.bridgeOne = new Physijs.BoxMesh(new BoxGeometry(5, 1, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeOne = new Physijs.BoxMesh(new BoxGeometry(5, 1, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeOne.position.set(40.98, 1, -1.93);
             this.bridgeOne.receiveShadow = true;
             this.bridgeOne.castShadow = true;
@@ -332,7 +332,7 @@ module scenes {
             this.add(this.bridgeOne);
             console.log("Added  bridgeOne to Scene");
 
-            this.bridgeTwo = new Physijs.BoxMesh(new BoxGeometry(4, 1, 6), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeTwo = new Physijs.BoxMesh(new BoxGeometry(4, 1, 6), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeTwo.position.set(30.52, 2.5, 0);
             this.bridgeTwo.receiveShadow = true;
             this.bridgeTwo.castShadow = true;
@@ -340,7 +340,7 @@ module scenes {
             this.add(this.bridgeTwo);
             console.log("Added  bridgeTwo to Scene");
             
-            this.bridgeThree = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeThree = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeThree.position.set(24.33, 2.5, -0.79);
             this.bridgeThree.receiveShadow = true;
             this.bridgeThree.castShadow = true;
@@ -348,7 +348,7 @@ module scenes {
             this.add(this.bridgeThree);
             console.log("Added  bridgeThree to Scene");
             
-            this.bridgeFour = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeFour = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeFour.position.set(20.33, 1.32, 0.78);
             this.bridgeFour.receiveShadow = true;
             this.bridgeFour.castShadow = true;
@@ -357,7 +357,7 @@ module scenes {
             console.log("Added  bridgeFour to Scene");
             
             
-            this.bridgeFive = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeFive = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeFive.position.set(15.77, 2.22, -0.79);
             this.bridgeFive.receiveShadow = true;
             this.bridgeFive.castShadow = true;
@@ -365,7 +365,7 @@ module scenes {
             this.add(this.bridgeFive);
             console.log("Added  bridgeFive to Scene");
             
-            this.bridgeSix = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeSix = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeSix.position.set(11.44, 1.5, 0);
             this.bridgeSix.receiveShadow = true;
             this.bridgeSix.castShadow = true;
@@ -373,7 +373,7 @@ module scenes {
             this.add(this.bridgeSix);
             console.log("Added  bridgeSix to Scene");
            
-            this.bridgeSeven = new Physijs.BoxMesh(new BoxGeometry(15, 1, 2), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeSeven = new Physijs.BoxMesh(new BoxGeometry(15, 1, 2), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeSeven.position.set(-23.02, 1.5, 0);
             this.bridgeSeven.receiveShadow = true;
             this.bridgeSeven.castShadow = true;
@@ -381,7 +381,7 @@ module scenes {
             this.add(this.bridgeSeven);
             console.log("Added  bridgeSeven to Scene");
             
-            this.bridgeEight = new Physijs.BoxMesh(new BoxGeometry(3, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeEight = new Physijs.BoxMesh(new BoxGeometry(3, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeEight.position.set(-35.72, 1.5, 0.2);
             this.bridgeEight.receiveShadow = true;
             this.bridgeEight.castShadow = true;
@@ -391,8 +391,8 @@ module scenes {
         }
                 //add finish box. when player collides the finish box, he wins and goes to viewPosition
         private addFinish(): void {
-            this.finish = new Physijs.BoxMesh(new BoxGeometry(3, 2, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/finish.jpg') }), 0, 0), 0);
-            this.finish.position.set(-24.8, 1, 7.94);
+            this.finish = new Physijs.BoxMesh(new BoxGeometry(5, 1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/finish.jpg') }), 0, 0), 0);
+            this.finish.position.set(-47.39, 0, 0);
             this.finish.receiveShadow = true;
             this.finish.castShadow = true;
             this.finish.name = "Finish";
@@ -541,7 +541,8 @@ module scenes {
             createjs.Sound.play("death");
             livesValue--;
             if (livesValue <= 0) {
-                scene.remove(this.player);
+                 currentScene = config.Scene.GAMEOVER;
+                changeScene();
                 timeValue=0;
                 this.livesLabel.text = "YOU LOST!";
                  this.timeLabel.text = "TRY AGAIN!";
@@ -652,7 +653,8 @@ module scenes {
                      self.livesLabel.text = "YOU LOST!";
                  self.timeLabel.text = "TRY AGAIN!";
                     timeValue=0;
-                    self.remove(self.player);
+                    currentScene = config.Scene.GAMEOVER;
+                changeScene();
                 }
                 else {
                     timeValue = 10;

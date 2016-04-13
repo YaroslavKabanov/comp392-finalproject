@@ -22,6 +22,7 @@
 /// <reference path="../scenes/intermediate.ts" />
 /// <reference path="../scenes/instructions.ts" />
 /// <reference path="../scenes/levelThree.ts" />
+/// <reference path="../scenes/gameOver.ts" />
 /// <reference path="../scenes/menu.ts" />
 
 

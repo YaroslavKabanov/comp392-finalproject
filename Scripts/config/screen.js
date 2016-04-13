@@ -19,6 +19,7 @@ var config;
         Scene.INSTRUCTIONS = 3;
         Scene.INTERMEDIATE = 4;
         Scene.LEVELTHREE = 5;
+        Scene.GAMEOVER = 6;
         return Scene;
     }());
     config.Scene = Scene;

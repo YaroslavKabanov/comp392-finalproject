@@ -524,7 +524,8 @@ var scenes;
                         createjs.Sound.play("death");
                         livesValue--;
                         if (livesValue <= 0) {
-                            scene.remove(this.player);
+                            currentScene = config.Scene.GAMEOVER;
+                            changeScene();
                             timeValue = 0;
                             this.livesLabel.text = "YOU LOST!";
                             this.timeLabel.text = "TRY AGAIN!";
@@ -616,7 +617,8 @@ var scenes;
                         self.livesLabel.text = "YOU LOST!";
                         self.timeLabel.text = "TRY AGAIN!";
                         timeValue = 0;
-                        self.remove(self.player);
+                        currentScene = config.Scene.GAMEOVER;
+                        changeScene();
                     }
                     else {
                         timeValue = 10;

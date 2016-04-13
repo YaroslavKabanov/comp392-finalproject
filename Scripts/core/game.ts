@@ -65,6 +65,7 @@ var levelThree: scenes.LevelThree;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
 var instructions: scenes.Instructions;
+var gameOver: scenes.GameOver;
 //var over: scenes.Over;
 
 var stats: Stats;
@@ -207,6 +208,13 @@ function changeScene(): void {
             levelThree = new scenes.LevelThree();
             scene = levelThree;
             console.log("Starting THREE Scene");
+            break;
+            
+              case config.Scene.GAMEOVER:
+            //show the gameOver scene
+            gameOver = new scenes.GameOver();
+            scene = gameOver;
+            console.log("Starting Game Over Scene");
             break;
 
         //  case config.Scene.OVER:
