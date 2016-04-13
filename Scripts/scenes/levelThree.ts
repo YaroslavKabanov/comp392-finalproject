@@ -541,6 +541,7 @@ module scenes {
             createjs.Sound.play("death");
             livesValue--;
             if (livesValue <= 0) {
+                 document.exitPointerLock();
                  currentScene = config.Scene.GAMEOVER;
                 changeScene();
                 timeValue=0;
@@ -650,6 +651,7 @@ module scenes {
                 livesValue--;
                 if (livesValue <= 0) {
                     console.log("loooser!!!");
+                     document.exitPointerLock();
                      self.livesLabel.text = "YOU LOST!";
                  self.timeLabel.text = "TRY AGAIN!";
                     timeValue=0;
@@ -661,7 +663,7 @@ module scenes {
                     self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                     self.livesLabel.text = "LIVES: " + livesValue;
                     self.remove(self.player);
-                    self.player.position.set(22, 15, -0.33);
+                     this.player.position.set(45, 5, -0.33);
                     self.add(self.player);
 
                 }

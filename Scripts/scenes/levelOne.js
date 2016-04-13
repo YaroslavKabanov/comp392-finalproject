@@ -524,6 +524,7 @@ var scenes;
                         createjs.Sound.play("death");
                         livesValue--;
                         if (livesValue <= 0) {
+                            document.exitPointerLock();
                             currentScene = config.Scene.GAMEOVER;
                             changeScene();
                             timeValue = 0;
@@ -613,6 +614,7 @@ var scenes;
                     createjs.Sound.play("enemy");
                     livesValue--;
                     if (livesValue <= 0) {
+                        document.exitPointerLock();
                         console.log("loooser!!!");
                         self.livesLabel.text = "YOU LOST!";
                         self.timeLabel.text = "TRY AGAIN!";

@@ -104,32 +104,7 @@ module scenes {
          * @method addGround
          * @return void
          */
-        private addGround(): void {
-            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/ground.jpg');
-            this.groundTexture.wrapS = THREE.RepeatWrapping;
-            this.groundTexture.wrapT = THREE.RepeatWrapping;
-            this.groundTexture.repeat.set(8, 8);
-
-            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/ground.png');
-            this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
-            this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
-            this.groundTextureNormal.repeat.set(8, 8);
-
-            this.groundMaterial = new PhongMaterial();
-            this.groundMaterial.map = this.groundTexture;
-            this.groundMaterial.bumpMap = this.groundTextureNormal;
-            this.groundMaterial.bumpScale = 0.2;
-
-            this.groundGeometry = new BoxGeometry(32, 1, 32);
-            this.groundPhysicsMaterial = Physijs.createMaterial(this.groundMaterial, 0, 0);
-            this.ground = new Physijs.ConvexMesh(this.groundGeometry, this.groundPhysicsMaterial, 0);
-            this.ground.receiveShadow = true;
-            this.ground.name = "Ground";
-            this.add(this.ground);
-            console.log("Added Ground to scene");
-        }
-       
-
+        
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++
 
         /**
@@ -145,10 +120,6 @@ module scenes {
             this.setGravity(new THREE.Vector3(0, -10, 0));
             var self = this;
             
-            //check for high score changes
-            if(scoreValue > highScoreValue) {
-                highScoreValue = scoreValue;
-            }
             
             this._gameOverLabel = new createjs.Text(
                 "GAME OVER",
@@ -184,8 +155,6 @@ module scenes {
             // Add Spot Light to the scene
             this.addSpotLight();
 
-            // Ground Object
-            this.addGround();
             
             camera.position.set(0, 10, -20);
             camera.lookAt(new Vector3(0, 0, 0));  
