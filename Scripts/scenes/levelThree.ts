@@ -249,7 +249,7 @@ module scenes {
             this.add(this.lavaPaddleOne);
             console.log("Added  lavaPaddleOne to Scene");
             
-             this.holeOne = new Physijs.BoxMesh(new BoxGeometry(3.5, 0.1, 3.5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+             this.holeOne = this.holeTwo = new Physijs.CylinderMesh (new CylinderGeometry(3, 3, 0.5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/hole.jpg') }), 0, 0), 0);
             this.holeOne.position.set(29.62, 0.5, 0);
             this.holeOne.receiveShadow = true;
             this.holeOne.castShadow = true;
@@ -289,31 +289,31 @@ module scenes {
             this.add(this.obstacleTwo);
             console.log("Added  obstacleTwo to Scene");
             
-            this.obstacleThree = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleTwo.position.set(-2.88, 0.5, -1.04);
-            this.obstacleTwo.receiveShadow = true;
-            this.obstacleTwo.castShadow = true;
-            this.obstacleTwo.name = "DeathPlane";
-            this.add(this.obstacleTwo);
-            console.log("Added  obstacleTwo to Scene");
+            this.obstacleThree = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleThree.position.set(-2.88, 0.5, -1.04);
+            this.obstacleThree.receiveShadow = true;
+            this.obstacleThree.castShadow = true;
+            this.obstacleThree.name = "DeathPlane";
+            this.add(this.obstacleThree);
+            console.log("Added  obstacleThree to Scene");
             
-            this.obstacleFour = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleTwo.position.set(-6.57, 0.5, 0.84);
-            this.obstacleTwo.receiveShadow = true;
-            this.obstacleTwo.castShadow = true;
-            this.obstacleTwo.name = "DeathPlane";
-            this.add(this.obstacleTwo);
-            console.log("Added  obstacleTwo to Scene");
+            this.obstacleFour = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleFour.position.set(-6.57, 0.5, 0.84);
+            this.obstacleFour.receiveShadow = true;
+            this.obstacleFour.castShadow = true;
+            this.obstacleFour.name = "DeathPlane";
+            this.add(this.obstacleFour);
+            console.log("Added  obstacleFour to Scene");
             
-            this.obstacleFive = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleTwo.position.set(-11.4, 0.5, -0.89);
-            this.obstacleTwo.receiveShadow = true;
-            this.obstacleTwo.castShadow = true;
-            this.obstacleTwo.name = "DeathPlane";
-            this.add(this.obstacleTwo);
-            console.log("Added  obstacleTwo to Scene");
+            this.obstacleFive = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleFive.position.set(-11.4, 0.5, -0.89);
+            this.obstacleFive.receiveShadow = true;
+            this.obstacleFive.castShadow = true;
+            this.obstacleFive.name = "DeathPlane";
+            this.add(this.obstacleFive);
+            console.log("Added  obstacleFive to Scene");
             
-            this.holeTwo = new Physijs.BoxMesh(new BoxGeometry(3.5, 0.1, 3.5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.holeTwo = new Physijs.CylinderMesh (new CylinderGeometry(3, 3, 0.5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/hole.jpg') }), 0, 0), 0);
             this.holeTwo.position.set(-35.8, 0.5, 0);
             this.holeTwo.receiveShadow = true;
             this.holeTwo.castShadow = true;
