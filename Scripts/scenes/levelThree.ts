@@ -63,7 +63,27 @@ module scenes {
         
             private timeLabel: createjs.Text;
 
-
+        //add obstacles
+        private lavaPaddleOne: Physijs.Mesh;
+        private lavaPaddleTwo: Physijs.Mesh;
+        private lavaPaddleThree: Physijs.Mesh;
+        private holeOne: Physijs.Mesh;
+        private holeTwo: Physijs.Mesh;
+        private obstacleOne: Physijs.Mesh;
+        private obstacleTwo: Physijs.Mesh;
+        private obstacleThree: Physijs.Mesh;
+        private obstacleFour: Physijs.Mesh;
+        private obstacleFive: Physijs.Mesh;
+        
+        //add bridges
+        private bridgeOne: Physijs.Mesh;
+        private bridgeTwo: Physijs.Mesh;
+        private bridgeThree: Physijs.Mesh;
+        private bridgeFour: Physijs.Mesh;
+        private bridgeFive: Physijs.Mesh;
+        private bridgeSix: Physijs.Mesh;
+        private bridgeSeven: Physijs.Mesh;
+        private bridgeEight: Physijs.Mesh;
 
         private finish: Physijs.Mesh;
 
@@ -220,6 +240,166 @@ module scenes {
             console.log("Added Ground to scene");
         }
         
+        private addObstacles():void{
+            this.lavaPaddleOne = new Physijs.BoxMesh(new BoxGeometry(5, 0.1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.lavaPaddleOne.position.set(40.75, 0.5, 0);
+            this.lavaPaddleOne.receiveShadow = true;
+            this.lavaPaddleOne.castShadow = true;
+            this.lavaPaddleOne.name = "DeathPlane";
+            this.add(this.lavaPaddleOne);
+            console.log("Added  lavaPaddleOne to Scene");
+            
+             this.holeOne = new Physijs.BoxMesh(new BoxGeometry(3.5, 0.1, 3.5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.holeOne.position.set(29.62, 0.5, 0);
+            this.holeOne.receiveShadow = true;
+            this.holeOne.castShadow = true;
+            this.holeOne.name = "DeathPlane";
+            this.add(this.holeOne);
+            console.log("Added  holeOne to Scene");
+            
+            this.lavaPaddleTwo = new Physijs.BoxMesh(new BoxGeometry(15, 0.1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.lavaPaddleTwo.position.set(18.07, 0.5, 0);
+            this.lavaPaddleTwo.receiveShadow = true;
+            this.lavaPaddleTwo.castShadow = true;
+            this.lavaPaddleTwo.name = "DeathPlane";
+            this.add(this.lavaPaddleTwo);
+            console.log("Added  lavaPaddleTwo to Scene");
+            
+            this.lavaPaddleThree = new Physijs.BoxMesh(new BoxGeometry(15, 0.1, 5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.lavaPaddleThree.position.set(-22.97, 0.5, 0);
+            this.lavaPaddleThree.receiveShadow = true;
+            this.lavaPaddleThree.castShadow = true;
+            this.lavaPaddleThree.name = "DeathPlane";
+            this.add(this.lavaPaddleThree);
+            console.log("Added  lavaPaddleThree to Scene");
+            
+            this.obstacleOne = new Physijs.BoxMesh(new BoxGeometry(2, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleOne.position.set(3.73, 0.5, -1.45);
+            this.obstacleOne.receiveShadow = true;
+            this.obstacleOne.castShadow = true;
+            this.obstacleOne.name = "DeathPlane";
+            this.add(this.obstacleOne);
+            console.log("Added  obstacleOne to Scene");
+            
+            this.obstacleTwo = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleTwo.position.set(4.39, 0.5, 1.62);
+            this.obstacleTwo.receiveShadow = true;
+            this.obstacleTwo.castShadow = true;
+            this.obstacleTwo.name = "DeathPlane";
+            this.add(this.obstacleTwo);
+            console.log("Added  obstacleTwo to Scene");
+            
+            this.obstacleThree = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleTwo.position.set(-2.88, 0.5, -1.04);
+            this.obstacleTwo.receiveShadow = true;
+            this.obstacleTwo.castShadow = true;
+            this.obstacleTwo.name = "DeathPlane";
+            this.add(this.obstacleTwo);
+            console.log("Added  obstacleTwo to Scene");
+            
+            this.obstacleFour = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleTwo.position.set(-6.57, 0.5, 0.84);
+            this.obstacleTwo.receiveShadow = true;
+            this.obstacleTwo.castShadow = true;
+            this.obstacleTwo.name = "DeathPlane";
+            this.add(this.obstacleTwo);
+            console.log("Added  obstacleTwo to Scene");
+            
+            this.obstacleFive = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleTwo.position.set(-11.4, 0.5, -0.89);
+            this.obstacleTwo.receiveShadow = true;
+            this.obstacleTwo.castShadow = true;
+            this.obstacleTwo.name = "DeathPlane";
+            this.add(this.obstacleTwo);
+            console.log("Added  obstacleTwo to Scene");
+            
+            this.holeTwo = new Physijs.BoxMesh(new BoxGeometry(3.5, 0.1, 3.5), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.holeTwo.position.set(-35.8, 0.5, 0);
+            this.holeTwo.receiveShadow = true;
+            this.holeTwo.castShadow = true;
+            this.holeTwo.name = "DeathPlane";
+            this.add(this.holeTwo);
+            console.log("Added  holeTwo to Scene");
+            
+        }
+            
+            private addBridges():void{
+            this.bridgeOne = new Physijs.BoxMesh(new BoxGeometry(5, 1, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeOne.position.set(40.98, 1, -1.93);
+            this.bridgeOne.receiveShadow = true;
+            this.bridgeOne.castShadow = true;
+            this.bridgeOne.name = "savePlace";
+            this.add(this.bridgeOne);
+            console.log("Added  bridgeOne to Scene");
+
+            this.bridgeTwo = new Physijs.BoxMesh(new BoxGeometry(4, 1, 6), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeTwo.position.set(30.52, 2.5, 0);
+            this.bridgeTwo.receiveShadow = true;
+            this.bridgeTwo.castShadow = true;
+            this.bridgeTwo.name = "savePlace";
+            this.add(this.bridgeTwo);
+            console.log("Added  bridgeTwo to Scene");
+            
+            this.bridgeThree = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeThree.position.set(24.33, 2.5, -0.79);
+            this.bridgeThree.receiveShadow = true;
+            this.bridgeThree.castShadow = true;
+            this.bridgeThree.name = "savePlace";
+            this.add(this.bridgeThree);
+            console.log("Added  bridgeThree to Scene");
+            
+            this.bridgeFour = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeFour.position.set(20.33, 1.32, 0.78);
+            this.bridgeFour.receiveShadow = true;
+            this.bridgeFour.castShadow = true;
+            this.bridgeFour.name = "savePlace";
+            this.add(this.bridgeFour);
+            console.log("Added  bridgeFour to Scene");
+            
+            
+            this.bridgeFive = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeFive.position.set(15.77, 2.22, -0.79);
+            this.bridgeFive.receiveShadow = true;
+            this.bridgeFive.castShadow = true;
+            this.bridgeFive.name = "savePlace";
+            this.add(this.bridgeFive);
+            console.log("Added  bridgeFive to Scene");
+            
+            this.bridgeSix = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeSix.position.set(11.44, 1.5, 0);
+            this.bridgeSix.receiveShadow = true;
+            this.bridgeSix.castShadow = true;
+            this.bridgeSix.name = "savePlace";
+            this.add(this.bridgeSix);
+            console.log("Added  bridgeSix to Scene");
+           
+            this.bridgeSeven = new Physijs.BoxMesh(new BoxGeometry(15, 1, 2), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeSeven.position.set(-23.02, 1.5, 0);
+            this.bridgeSeven.receiveShadow = true;
+            this.bridgeSeven.castShadow = true;
+            this.bridgeSeven.name = "savePlace";
+            this.add(this.bridgeSeven);
+            console.log("Added  bridgeSeven to Scene");
+            
+            this.bridgeEight = new Physijs.BoxMesh(new BoxGeometry(3, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/forest.jpg') }), 0, 0), 0);
+            this.bridgeEight.position.set(-35.72, 1.5, 0.2);
+            this.bridgeEight.receiveShadow = true;
+            this.bridgeEight.castShadow = true;
+            this.bridgeEight.name = "savePlace";
+            this.add(this.bridgeEight);
+            console.log("Added  bridgeEight to Scene");
+        }
+                //add finish box. when player collides the finish box, he wins and goes to viewPosition
+        private addFinish(): void {
+            this.finish = new Physijs.BoxMesh(new BoxGeometry(3, 2, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/finish.jpg') }), 0, 0), 0);
+            this.finish.position.set(-24.8, 1, 7.94);
+            this.finish.receiveShadow = true;
+            this.finish.castShadow = true;
+            this.finish.name = "Finish";
+            this.add(this.finish);
+            console.log("Added finish to Scene");
+        }
+        
           /**
          * Adds the player controller to the scene
          * 
@@ -232,7 +412,7 @@ module scenes {
             this.playerMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x00ff00 }), 0.4, 0);
 
             this.player = new Physijs.BoxMesh(this.playerGeometry, this.playerMaterial, 1);
-            this.player.position.set(22, 15, -0.33);
+            this.player.position.set(45, 5, -0.33);
             this.player.receiveShadow = true;
             this.player.castShadow = true;
             this.player.name = "Player";
@@ -373,7 +553,7 @@ module scenes {
                 this.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                 this.livesLabel.text = "LIVES: " + livesValue;
                 this.remove(this.player);
-                this.player.position.set(22, 15, -0.33);
+                this.player.position.set(45, 5, -0.33);
                 this.add(this.player);
             }
 
@@ -435,12 +615,13 @@ module scenes {
             // Add Spot Light to the scene
             this.addSpotLight();
               this.addAmbientLight();
+              this.addObstacles();
 
             // Ground Object
             this.addGround();
 
-            //this.addFinish();
-
+            this.addFinish();
+            this.addBridges();
          
 
             // Add player controller
