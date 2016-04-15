@@ -78,9 +78,9 @@ var manifest = [
     { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
     { id: "background", src: "../../Assets/audio/background.mp3" },
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "StartButton", src: "../../Assets/images/StartButton1.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton1.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton1.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
     { id: "InstructionImage", src: "../../Assets/images/instruction.png" },
     { id: "menuBackground", src: "../../Assets/images/maxresdefault.jpg"}
