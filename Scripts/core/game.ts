@@ -62,6 +62,7 @@ var scoreValue: number;
 
 
 var levelOne: scenes.LevelOne;
+var levelTwo: scenes.LevelTwo;
 var levelThree: scenes.LevelThree;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
@@ -216,6 +217,13 @@ function changeScene(): void {
             gameOver = new scenes.GameOver();
             scene = gameOver;
             console.log("Starting Game Over Scene");
+            break;
+            
+            case config.Scene.LEVELTWO:
+            //show the PLAY scene
+            levelTwo = new scenes.LevelTwo();
+            scene = levelTwo;
+            console.log("Starting Two Scene");
             break;
 
         //  case config.Scene.OVER:

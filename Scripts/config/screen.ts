@@ -13,5 +13,6 @@ module config {
         public static INTERMEDIATE: number = 4;
         public static LEVELTHREE: number = 5;
         public static GAMEOVER: number = 6;
+        public static LEVELTWO: number = 7;
     }
 }
