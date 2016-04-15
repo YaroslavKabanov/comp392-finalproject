@@ -83,7 +83,7 @@ var manifest = [
     { id: "ExitButton", src: "../../Assets/images/ExitButton1.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
     { id: "InstructionImage", src: "../../Assets/images/instruction.png" },
-    { id: "menuBackground", src: "../../Assets/images/maxresdefault.jpg"}
+    { id: "menuBackground", src: "../../Assets/images/maxresdefault1.jpg"}
 ];
 
 function preload(): void {

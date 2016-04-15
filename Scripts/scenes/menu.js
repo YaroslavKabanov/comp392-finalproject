@@ -62,12 +62,6 @@ var scenes;
          * @return void
          */
         Menu.prototype.start = function () {
-            this._gameLabel = new createjs.Text("RESCUE GAME", "60px Bold Century Gothic", "#000000");
-            this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
-            this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
-            this._gameLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameLabel.y = config.Screen.HEIGHT * 0.5 - 250;
-            this._stage.addChild(this._gameLabel);
             this._menuBackground = new createjs.Bitmap(assets.getResult("menuBackground"));
             this._menuBackground.regX = this._menuBackground.getBounds().width * 0.5;
             this._menuBackground.regY = this._menuBackground.getBounds().height * 0.5;
