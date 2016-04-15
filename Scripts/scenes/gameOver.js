@@ -107,7 +107,13 @@ var scenes;
             this._gameOverLabel.x = config.Screen.WIDTH * 0.5;
             this._gameOverLabel.y = (config.Screen.HEIGHT * 0.5) - 100;
             this._stage.addChild(this._gameOverLabel);
-            this._restartButton = new createjs.Bitmap(assets.getResult("StartButton"));
+            this._gameoverBackground = new createjs.Bitmap(assets.getResult("gameover"));
+            this._gameoverBackground.regX = this._gameoverBackground.getBounds().width * 0.5;
+            this._gameoverBackground.regY = this._gameoverBackground.getBounds().height * 0.5;
+            this._gameoverBackground.x = config.Screen.WIDTH * 0.5;
+            this._gameoverBackground.y = config.Screen.HEIGHT * 0.5;
+            this._stage.addChild(this._gameoverBackground);
+            this._restartButton = new createjs.Bitmap(assets.getResult("mainmenu"));
             this._restartButton.regX = this._restartButton.getBounds().width * 0.5;
             this._restartButton.regY = this._restartButton.getBounds().height * 0.5;
             this._restartButton.x = config.Screen.WIDTH * 0.5;
@@ -120,7 +126,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._restartButton.on("click", function (event) {
-                currentScene = config.Scene.LEVELONE;
+                currentScene = config.Scene.MENU;
                 changeScene();
             });
             // Add Spot Light to the scene

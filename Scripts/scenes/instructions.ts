@@ -89,8 +89,8 @@ module scenes {
             this._backButton = new createjs.Bitmap(assets.getResult("BackButton"));
             this._backButton.regX = this._backButton.getBounds().width * 0.5;
             this._backButton.regY = this._backButton.getBounds().height * 0.5;
-            this._backButton.x = (config.Screen.WIDTH * 0.5)-70;
-            this._backButton.y = (config.Screen.HEIGHT * 0.5)+325;
+            this._backButton.x = (config.Screen.WIDTH * 0.5) + 20;
+            this._backButton.y = (config.Screen.HEIGHT * 0.5)+ 375;
             this._stage.addChild(this._backButton);
 
             this._backButton.on("mouseover", (event: createjs.MouseEvent) => {
