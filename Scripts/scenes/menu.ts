@@ -136,7 +136,7 @@ module scenes {
             });
 
             this._exitButton.on("click", (event: createjs.MouseEvent) => {
-                currentScene = config.Scene.LEVELTHREE;
+                currentScene = config.Scene.LEVELTWO;
                 changeScene();
             });
         }
