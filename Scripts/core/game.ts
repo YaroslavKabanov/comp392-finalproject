@@ -62,6 +62,7 @@ var scoreValue: number;
 
 
 var levelOne: scenes.LevelOne;
+var levelTwo: scenes.LevelTwo;
 var levelThree: scenes.LevelThree;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
@@ -78,11 +79,15 @@ var manifest = [
     { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
     { id: "background", src: "../../Assets/audio/background.mp3" },
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "StartButton", src: "../../Assets/images/StartButton1.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton1.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton1.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
+    { id: "InstructionImage", src: "../../Assets/images/instruction1.png" },
+    { id: "menuBackground", src: "../../Assets/images/maxresdefault1.jpg"},
+    { id: "gameover", src: "../../Assets/images/gameover.jpg"},
+    { id: "mainmenu", src: "../../Assets/images/mainmenu.png"}
+    
 ];
 
 function preload(): void {
@@ -216,6 +221,13 @@ function changeScene(): void {
             gameOver = new scenes.GameOver();
             scene = gameOver;
             console.log("Starting Game Over Scene");
+            break;
+            
+            case config.Scene.LEVELTWO:
+            //show the PLAY scene
+            levelTwo = new scenes.LevelTwo();
+            scene = levelTwo;
+            console.log("Starting Two Scene");
             break;
 
         //  case config.Scene.OVER:

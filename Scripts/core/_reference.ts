@@ -24,5 +24,4 @@
 /// <reference path="../scenes/levelThree.ts" />
 /// <reference path="../scenes/gameOver.ts" />
 /// <reference path="../scenes/menu.ts" />
-
-
+/// <reference path="../scenes/levelTwo.ts" />
