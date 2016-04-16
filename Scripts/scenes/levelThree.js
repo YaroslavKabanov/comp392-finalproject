@@ -153,7 +153,7 @@ var scenes;
             this.add(this.lavaPaddleOne);
             console.log("Added  lavaPaddleOne to Scene");
             this.holeOne = this.holeTwo = new Physijs.CylinderMesh(new CylinderGeometry(3, 3, 0.5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/hole.jpg') }), 0, 0), 0);
-            this.holeOne.position.set(29.62, 0.5, 0);
+            this.holeOne.position.set(34, 0.5, 0);
             this.holeOne.receiveShadow = true;
             this.holeOne.castShadow = true;
             this.holeOne.name = "DeathPlane";
@@ -216,16 +216,25 @@ var scenes;
             this.add(this.holeTwo);
             console.log("Added  holeTwo to Scene");
         };
+        LevelThree.prototype.addDeathPlane = function () {
+            this.deathPlane = new Physijs.BoxMesh(new BoxGeometry(100, 2, 100), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.deathPlane.position.set(0, -5, 0);
+            this.deathPlane.receiveShadow = true;
+            this.deathPlane.castShadow = true;
+            this.deathPlane.name = "DeathPlane";
+            this.add(this.deathPlane);
+            console.log("Added  deathPlane to Scene");
+        };
         LevelThree.prototype.addBridges = function () {
-            this.bridgeOne = new Physijs.BoxMesh(new BoxGeometry(5, 1, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
-            this.bridgeOne.position.set(40.98, 1, -1.93);
+            this.bridgeOne = new Physijs.BoxMesh(new BoxGeometry(5, 1, 2), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            this.bridgeOne.position.set(40.98, 1, -1.3);
             this.bridgeOne.receiveShadow = true;
             this.bridgeOne.castShadow = true;
             this.bridgeOne.name = "savePlace";
             this.add(this.bridgeOne);
             console.log("Added  bridgeOne to Scene");
-            this.bridgeTwo = new Physijs.BoxMesh(new BoxGeometry(4, 1, 6), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
-            this.bridgeTwo.position.set(30.52, 2.5, 0);
+            this.bridgeTwo = new Physijs.BoxMesh(new BoxGeometry(5, 1, 10), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            this.bridgeTwo.position.set(35, 1.5, 0);
             this.bridgeTwo.receiveShadow = true;
             this.bridgeTwo.castShadow = true;
             this.bridgeTwo.name = "savePlace";
@@ -295,7 +304,7 @@ var scenes;
             this.playerGeometry = new BoxGeometry(2, 4, 2);
             this.playerMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x00ff00 }), 0.4, 0);
             this.player = new Physijs.BoxMesh(this.playerGeometry, this.playerMaterial, 1);
-            this.player.position.set(45, 5, -0.33);
+            this.player.position.set(48, 5, -0.33);
             this.player.receiveShadow = true;
             this.player.castShadow = true;
             this.player.name = "Player";
@@ -375,7 +384,7 @@ var scenes;
                     }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
-                        if (this.player.position.y > 4) {
+                        if (this.player.position.y > 6) {
                             this.isGrounded = false;
                             createjs.Sound.play("jump");
                         }
@@ -428,7 +437,7 @@ var scenes;
                             this.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                             this.livesLabel.text = "LIVES: " + livesValue;
                             this.remove(this.player);
-                            this.player.position.set(45, 5, -0.33);
+                            this.player.position.set(48, 5, -0.33);
                             this.add(this.player);
                         }
                     }
@@ -480,6 +489,7 @@ var scenes;
             this.addObstacles();
             // Ground Object
             this.addGround();
+            this.addDeathPlane();
             this.addFinish();
             this.addBridges();
             // Add player controller
@@ -514,7 +524,7 @@ var scenes;
                         self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                         self.livesLabel.text = "LIVES: " + livesValue;
                         self.remove(self.player);
-                        this.player.position.set(45, 5, -0.33);
+                        this.player.position.set(48, 5, -0.33);
                         self.add(self.player);
                     }
                 }

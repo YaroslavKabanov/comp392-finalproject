@@ -820,6 +820,7 @@ module scenes {
                 //self.remove(self.player);
                 //self.player.position.set(-45, 50, 0);
                 //self.add(self.player);
+                document.exitPointerLock();
                  currentScene = config.Scene.INTERMEDIATE;
                 changeScene();
                 camera.position.set(70, 100, 80);
