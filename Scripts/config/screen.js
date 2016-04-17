@@ -21,6 +21,8 @@ var config;
         Scene.LEVELTHREE = 5;
         Scene.GAMEOVER = 6;
         Scene.LEVELTWO = 7;
+        Scene.GAMEOVERWIN = 8;
+        Scene.INTERMEDIATETWO = 9;
         return Scene;
     }());
     config.Scene = Scene;

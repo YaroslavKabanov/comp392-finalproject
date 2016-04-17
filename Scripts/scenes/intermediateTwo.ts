@@ -4,7 +4,7 @@ module scenes {
    * 
    * @module scenes
    */
-    export class Intermediate extends scenes.Scene {
+    export class IntermediateTwo extends scenes.Scene {
         private _blocker: HTMLElement;
         private _stage: createjs.Stage;
         private _gameLabel: createjs.Text;
@@ -74,7 +74,7 @@ module scenes {
             this._startButton.on("click", (event: createjs.MouseEvent) => {
                 createjs.Sound.stop();
                          
-                currentScene = config.Scene.LEVELTWO;
+                currentScene = config.Scene.LEVELTHREE;
                 changeScene();
             });
         }

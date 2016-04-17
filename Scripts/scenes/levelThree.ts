@@ -134,7 +134,7 @@ module scenes {
             // setup canvas for menu scene
             this._setupCanvas();
 
-            this.crystalCount = 10;
+            this.crystalCount = 3;
             this.prevTime = 0;
             this.stage = new createjs.Stage(canvas);
             this.velocity = new Vector3(0, 0, 0);
@@ -273,40 +273,40 @@ module scenes {
             this.add(this.lavaPaddleThree);
             console.log("Added  lavaPaddleThree to Scene");
             
-            this.obstacleOne = new Physijs.BoxMesh(new BoxGeometry(2, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleOne.position.set(3.73, 0.5, -1.45);
+            this.obstacleOne = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleOne.position.set(4.39, 0.5, 2.2);
             this.obstacleOne.receiveShadow = true;
             this.obstacleOne.castShadow = true;
             this.obstacleOne.name = "DeathPlane";
             this.add(this.obstacleOne);
             console.log("Added  obstacleOne to Scene");
             
-            this.obstacleTwo = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1.8), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleTwo.position.set(4.39, 0.5, 1.62);
+            this.obstacleTwo = new Physijs.BoxMesh(new BoxGeometry(5, 5, 1), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleTwo.position.set(3.73, 0.5, -2.2);
             this.obstacleTwo.receiveShadow = true;
             this.obstacleTwo.castShadow = true;
             this.obstacleTwo.name = "DeathPlane";
             this.add(this.obstacleTwo);
             console.log("Added  obstacleTwo to Scene");
             
-            this.obstacleThree = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleThree.position.set(-2.88, 0.5, -1.04);
+            this.obstacleThree = new Physijs.CylinderMesh (new CylinderGeometry(0.5, 0.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleThree.position.set(-2.29, 0.5, -2.1);
             this.obstacleThree.receiveShadow = true;
             this.obstacleThree.castShadow = true;
             this.obstacleThree.name = "DeathPlane";
             this.add(this.obstacleThree);
             console.log("Added  obstacleThree to Scene");
             
-            this.obstacleFour = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleFour.position.set(-6.57, 0.5, 0.84);
+            this.obstacleFour = new Physijs.CylinderMesh (new CylinderGeometry(1, 1, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleFour.position.set(-6.57, 0.5, 1.8);
             this.obstacleFour.receiveShadow = true;
             this.obstacleFour.castShadow = true;
             this.obstacleFour.name = "DeathPlane";
             this.add(this.obstacleFour);
             console.log("Added  obstacleFour to Scene");
             
-            this.obstacleFive = new Physijs.CylinderMesh (new CylinderGeometry(1.5, 1.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
-            this.obstacleFive.position.set(-11.4, 0.5, -0.89);
+            this.obstacleFive = new Physijs.CylinderMesh (new CylinderGeometry(0.5, 0.5, 5, 32), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/lava.jpg') }), 0, 0), 0);
+            this.obstacleFive.position.set(-11.4, 0.5, -2.1);
             this.obstacleFive.receiveShadow = true;
             this.obstacleFive.castShadow = true;
             this.obstacleFive.name = "DeathPlane";
@@ -354,8 +354,8 @@ module scenes {
             this.add(this.bridgeTwo);
             console.log("Added  bridgeTwo to Scene");
             
-            this.bridgeThree = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
-            this.bridgeThree.position.set(24.33, 2.5, -0.79);
+            this.bridgeThree = new Physijs.BoxMesh(new BoxGeometry(7, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            this.bridgeThree.position.set(15.65, 2.5, -0.34);
             this.bridgeThree.receiveShadow = true;
             this.bridgeThree.castShadow = true;
             this.bridgeThree.name = "savePlace";
@@ -363,7 +363,7 @@ module scenes {
             console.log("Added  bridgeThree to Scene");
             
             this.bridgeFour = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
-            this.bridgeFour.position.set(20.33, 1.32, 0.78);
+            this.bridgeFour.position.set(24.33, 1, -0.19);
             this.bridgeFour.receiveShadow = true;
             this.bridgeFour.castShadow = true;
             this.bridgeFour.name = "savePlace";
@@ -371,23 +371,23 @@ module scenes {
             console.log("Added  bridgeFour to Scene");
             
             
-            this.bridgeFive = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            /*this.bridgeFive = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeFive.position.set(15.77, 2.22, -0.79);
             this.bridgeFive.receiveShadow = true;
             this.bridgeFive.castShadow = true;
             this.bridgeFive.name = "savePlace";
             this.add(this.bridgeFive);
-            console.log("Added  bridgeFive to Scene");
+            console.log("Added  bridgeFive to Scene");*/
             
-            this.bridgeSix = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+           /* this.bridgeSix = new Physijs.BoxMesh(new BoxGeometry(2, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeSix.position.set(11.44, 1.5, 0);
             this.bridgeSix.receiveShadow = true;
             this.bridgeSix.castShadow = true;
             this.bridgeSix.name = "savePlace";
             this.add(this.bridgeSix);
-            console.log("Added  bridgeSix to Scene");
+            console.log("Added  bridgeSix to Scene");*/
            
-            this.bridgeSeven = new Physijs.BoxMesh(new BoxGeometry(15, 1, 2), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            this.bridgeSeven = new Physijs.BoxMesh(new BoxGeometry(15, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeSeven.position.set(-23.02, 1.5, 0);
             this.bridgeSeven.receiveShadow = true;
             this.bridgeSeven.castShadow = true;
@@ -395,7 +395,7 @@ module scenes {
             this.add(this.bridgeSeven);
             console.log("Added  bridgeSeven to Scene");
             
-            this.bridgeEight = new Physijs.BoxMesh(new BoxGeometry(3, 1, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
+            this.bridgeEight = new Physijs.BoxMesh(new BoxGeometry(4, 1, 4), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/bridge.jpg') }), 0, 0), 0);
             this.bridgeEight.position.set(-35.72, 1.5, 0.2);
             this.bridgeEight.receiveShadow = true;
             this.bridgeEight.castShadow = true;
@@ -422,7 +422,7 @@ module scenes {
          */
         private addPlayer(): void {
             // Player Object
-            this.playerGeometry = new BoxGeometry(2, 4, 2);
+            this.playerGeometry = new BoxGeometry(2, 3, 2);
             this.playerMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x00ff00 }), 0.4, 0);
 
             this.player = new Physijs.BoxMesh(this.playerGeometry, this.playerMaterial, 1);
@@ -433,7 +433,40 @@ module scenes {
             this.add(this.player);
             console.log("Added Player to Scene");
         }
-        
+         private addCrystalMesh(): void {
+            var self = this;
+
+            this.crystals = new Array<Physijs.ConvexMesh>(); // Instantiate a convex mesh array
+
+            var coinLoader = new THREE.JSONLoader().load("../../Assets/imported/crystal.json", function(geometry: THREE.Geometry) {
+                var phongMaterial = new PhongMaterial({ color: 0x50c878 });
+                phongMaterial.emissive = new THREE.Color(0x50c878);
+                var coinMaterial = Physijs.createMaterial((phongMaterial), 0.4, 0.6);
+
+
+                for (var count: number = 0; count < self.crystalCount; count++) {
+                    self.crystals[count] = new Physijs.ConvexMesh(geometry, coinMaterial);
+                    self.crystals[count].receiveShadow = true;
+                    self.crystals[count].castShadow = true;
+                    self.crystals[count].name = "Crystal";
+                    self.setCrystalPosition(self.crystals[count]);
+                    console.log("Added Crystal " + count + " to the Scene");
+                }
+            });
+        }
+
+        /**
+         * This method randomly sets the coin object's position
+         * 
+         * @method setCoinPosition
+         * @return void
+         */
+        private setCrystalPosition(crystal: Physijs.ConvexMesh): void {
+            var randomPointX: number = Math.floor(Math.random() * 30) - 10;
+            var randomPointZ: number = Math.floor(Math.random() * 30) - 10;
+            crystal.position.set(randomPointX, 10, randomPointZ);
+            this.add(crystal);
+        }
          /**
          * Event Handler method for any pointerLockChange events
          * 
@@ -510,7 +543,7 @@ module scenes {
                     }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
-                        if (this.player.position.y > 6) {
+                        if (this.player.position.y > 8) {
                             this.isGrounded = false;
                             createjs.Sound.play("jump");
                         }
@@ -569,7 +602,7 @@ module scenes {
                 this.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                 this.livesLabel.text = "LIVES: " + livesValue;
                 this.remove(this.player);
-                this.player.position.set(48, 5, -0.33);
+                this.player.position.set(48, 10, -0.33);
                 this.add(this.player);
             }
 
@@ -590,7 +623,7 @@ module scenes {
         public start(): void {
             // setup the class context to use within events
             var self = this;
-            
+              createjs.Sound.play("background");
             // Set Up Scoreboard
             this.setupScoreboard();
 
@@ -643,8 +676,14 @@ module scenes {
             // Add player controller
             this.addPlayer();
 
-     
-
+        // Add custom crystal imported from Blender
+            this.addCrystalMesh();
+            this.deathPlane.addEventListener('collision', function(eventObject) {
+                if (eventObject.name === "crystal") {
+                 self.remove(eventObject);
+               self.setCrystalPosition(eventObject);
+                }
+            });
 
             // Collision Check with player
             this.player.addEventListener('collision', function(eventObject) {
@@ -654,8 +693,9 @@ module scenes {
                 }
                if (eventObject.name === "Crystal") {
                 timeValue += 5;
+                livesValue+=1;
                 self.remove(eventObject);
-              //  self.setCrystalPosition(eventObject);
+               self.setCrystalPosition(eventObject);
                 self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                 createjs.Sound.play("crystal");
             }
@@ -677,7 +717,7 @@ module scenes {
                     self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                     self.livesLabel.text = "LIVES: " + livesValue;
                     self.remove(self.player);
-                     this.player.position.set(48, 5, -0.33);
+                     this.player.position.set(48, 10, -0.33);
                     self.add(self.player);
 
                 }
@@ -694,7 +734,7 @@ module scenes {
                 //self.remove(self.player);
                 //self.player.position.set(-45, 50, 0);
                 //self.add(self.player);
-                 currentScene = config.Scene.INTERMEDIATE;
+                 currentScene = config.Scene.GAMEOVERWIN;
                 changeScene();
                 camera.position.set(70, 100, 80);
               

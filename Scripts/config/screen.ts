@@ -14,5 +14,7 @@ module config {
         public static LEVELTHREE: number = 5;
         public static GAMEOVER: number = 6;
         public static LEVELTWO: number = 7;
+        public static GAMEOVERWIN: number=8;
+         public static INTERMEDIATETWO: number = 9;
     }
 }

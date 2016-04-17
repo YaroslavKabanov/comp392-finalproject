@@ -231,7 +231,7 @@ var scenes;
                 this.blocker.style.display = 'none';
             }
             else {
-                if (livesValue <= 0) {
+                if (livesValue <= 0 || livesValue > 100) {
                     this.blocker.style.display = 'none';
                     document.removeEventListener('pointerlockchange', this.pointerLockChange.bind(this), false);
                     document.removeEventListener('mozpointerlockchange', this.pointerLockChange.bind(this), false);
@@ -290,7 +290,7 @@ var scenes;
                     }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
-                        if (this.player.position.y > 4) {
+                        if (this.player.position.y > 100) {
                             this.isGrounded = false;
                             createjs.Sound.play("jump");
                         }
@@ -361,6 +361,7 @@ var scenes;
             var _this = this;
             // setup the class context to use within events
             var self = this;
+            createjs.Sound.play("background");
             // Set Up Scoreboard
             this.setupScoreboard();
             //check to see if pointerlock is supported
@@ -405,7 +406,6 @@ var scenes;
             this.player.addEventListener('collision', function (eventObject) {
                 if (eventObject.name === "Ground") {
                     self.isGrounded = true;
-                    createjs.Sound.play("hit");
                 }
                 if (eventObject.name === "Crystal") {
                     timeValue += 5;
@@ -445,7 +445,8 @@ var scenes;
                     //self.remove(self.player);
                     //self.player.position.set(-45, 50, 0);
                     //self.add(self.player);
-                    currentScene = config.Scene.INTERMEDIATE;
+                    document.exitPointerLock();
+                    currentScene = config.Scene.INTERMEDIATETWO;
                     changeScene();
                     camera.position.set(70, 100, 80);
                     camera.lookAt(new Vector3(0, 0, 0));

@@ -425,7 +425,7 @@ var scenes;
                 this.blocker.style.display = 'none';
             }
             else {
-                if (livesValue <= 0) {
+                if (livesValue <= 0 || livesValue > 100) {
                     this.blocker.style.display = 'none';
                     document.removeEventListener('pointerlockchange', this.pointerLockChange.bind(this), false);
                     document.removeEventListener('mozpointerlockchange', this.pointerLockChange.bind(this), false);
@@ -557,6 +557,7 @@ var scenes;
             var self = this;
             // Set Up Scoreboard
             this.setupScoreboard();
+            createjs.Sound.play("background");
             //check to see if pointerlock is supported
             this.havePointerLock = 'pointerLockElement' in document ||
                 'mozPointerLockElement' in document ||

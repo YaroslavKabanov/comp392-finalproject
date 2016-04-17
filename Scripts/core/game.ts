@@ -66,8 +66,10 @@ var levelTwo: scenes.LevelTwo;
 var levelThree: scenes.LevelThree;
 var menu: scenes.Menu;
 var intermediate:scenes.Intermediate;
+var intermediateTwo:scenes.IntermediateTwo;
 var instructions: scenes.Instructions;
 var gameOver: scenes.GameOver;
+var gameOverWin: scenes.GameOverWin;
 //var over: scenes.Over;
 
 var stats: Stats;
@@ -201,6 +203,13 @@ function changeScene(): void {
             scene = intermediate;
             console.log("Starting INTERMEDIATE Scene");
             break;
+            
+             case config.Scene.INTERMEDIATETWO:
+            //show the INTERMEDIATE scene
+            intermediateTwo = new scenes.IntermediateTwo();
+            scene = intermediateTwo;
+            console.log("Starting INTERMEDIATE TWO Scene");
+            break;
 
         case config.Scene.INSTRUCTIONS:
             instructions = new scenes.Instructions();
@@ -222,6 +231,14 @@ function changeScene(): void {
             scene = gameOver;
             console.log("Starting Game Over Scene");
             break;
+            
+            case config.Scene.GAMEOVERWIN:
+            //show the gameOver scene
+            gameOverWin = new scenes.GameOverWin();
+            scene = gameOverWin;
+            console.log("Starting Game Over Win Scene");
+            break;
+            
             
             case config.Scene.LEVELTWO:
             //show the PLAY scene

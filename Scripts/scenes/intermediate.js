@@ -62,7 +62,8 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._startButton.on("click", function (event) {
-                currentScene = config.Scene.LEVELONE;
+                createjs.Sound.stop();
+                currentScene = config.Scene.LEVELTWO;
                 changeScene();
             });
         };
@@ -74,6 +75,7 @@ var scenes;
          */
         Intermediate.prototype.update = function () {
             this._stage.update();
+            this.simulate();
         };
         /**
          * The resize method is a procedure that sets variables and objects on screen resize

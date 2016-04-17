@@ -60,8 +60,10 @@ var levelTwo;
 var levelThree;
 var menu;
 var intermediate;
+var intermediateTwo;
 var instructions;
 var gameOver;
+var gameOverWin;
 //var over: scenes.Over;
 var stats;
 var canvas;
@@ -72,11 +74,14 @@ var manifest = [
     { id: "enemy", src: "../../Assets/audio/enemy.mp3" },
     { id: "background", src: "../../Assets/audio/background.mp3" },
     { id: "finish", src: "../../Assets/audio/finish.mp3" },
-    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
-    { id: "ExitButton", src: "../../Assets/images/ExitButton.png" },
+    { id: "StartButton", src: "../../Assets/images/StartButton1.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton1.png" },
+    { id: "ExitButton", src: "../../Assets/images/ExitButton1.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "InstructionImage", src: "../../Assets/images/instruction.png" }
+    { id: "InstructionImage", src: "../../Assets/images/instruction1.png" },
+    { id: "menuBackground", src: "../../Assets/images/maxresdefault1.jpg" },
+    { id: "gameover", src: "../../Assets/images/gameover.jpg" },
+    { id: "mainmenu", src: "../../Assets/images/mainmenu.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -169,6 +174,12 @@ function changeScene() {
             scene = intermediate;
             console.log("Starting INTERMEDIATE Scene");
             break;
+        case config.Scene.INTERMEDIATETWO:
+            //show the INTERMEDIATE scene
+            intermediateTwo = new scenes.IntermediateTwo();
+            scene = intermediateTwo;
+            console.log("Starting INTERMEDIATE TWO Scene");
+            break;
         case config.Scene.INSTRUCTIONS:
             instructions = new scenes.Instructions();
             scene = instructions;
@@ -185,6 +196,12 @@ function changeScene() {
             gameOver = new scenes.GameOver();
             scene = gameOver;
             console.log("Starting Game Over Scene");
+            break;
+        case config.Scene.GAMEOVERWIN:
+            //show the gameOver scene
+            gameOverWin = new scenes.GameOverWin();
+            scene = gameOverWin;
+            console.log("Starting Game Over Win Scene");
             break;
         case config.Scene.LEVELTWO:
             //show the PLAY scene
