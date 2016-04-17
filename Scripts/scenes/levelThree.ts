@@ -134,7 +134,7 @@ module scenes {
             // setup canvas for menu scene
             this._setupCanvas();
 
-            this.crystalCount = 3;
+            this.crystalCount = 1;
             this.prevTime = 0;
             this.stage = new createjs.Stage(canvas);
             this.velocity = new Vector3(0, 0, 0);
@@ -462,8 +462,8 @@ module scenes {
          * @return void
          */
         private setCrystalPosition(crystal: Physijs.ConvexMesh): void {
-            var randomPointX: number = Math.floor(Math.random() * 30) - 10;
-            var randomPointZ: number = Math.floor(Math.random() * 30) - 10;
+            var randomPointX: number = 34.64;
+            var randomPointZ: number = -0.05;
             crystal.position.set(randomPointX, 10, randomPointZ);
             this.add(crystal);
         }
@@ -678,12 +678,7 @@ module scenes {
 
         // Add custom crystal imported from Blender
             this.addCrystalMesh();
-            this.deathPlane.addEventListener('collision', function(eventObject) {
-                if (eventObject.name === "crystal") {
-                 self.remove(eventObject);
-               self.setCrystalPosition(eventObject);
-                }
-            });
+     
 
             // Collision Check with player
             this.player.addEventListener('collision', function(eventObject) {
@@ -695,7 +690,8 @@ module scenes {
                 timeValue += 5;
                 livesValue+=1;
                 self.remove(eventObject);
-               self.setCrystalPosition(eventObject);
+             //  self.setCrystalPosition(eventObject);
+              self.livesLabel.text = "LIVES: " + livesValue;
                 self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
                 createjs.Sound.play("crystal");
             }

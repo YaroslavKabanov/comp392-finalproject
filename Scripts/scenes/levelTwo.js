@@ -358,11 +358,7 @@ var scenes;
                     }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
-<<<<<<< HEAD
                         if (this.player.position.y > 100) {
-=======
-                        if (this.player.position.y > (4 + this.currentObject.position.y)) {
->>>>>>> 3b991f67586cf41b339bc1b9bf71626e524e04f0
                             this.isGrounded = false;
                             this.velocity.y = 0;
                             createjs.Sound.play("jump");
@@ -480,11 +476,6 @@ var scenes;
             this.player.addEventListener('collision', function (eventObject) {
                 if (eventObject.name === "Ground") {
                     self.isGrounded = true;
-<<<<<<< HEAD
-=======
-                    this.currentObject = eventObject;
-                    createjs.Sound.play("hit");
->>>>>>> 3b991f67586cf41b339bc1b9bf71626e524e04f0
                 }
                 if (eventObject.name === "cube") {
                     self.isGrounded = true;
