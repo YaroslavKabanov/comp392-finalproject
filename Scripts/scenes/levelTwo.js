@@ -123,11 +123,11 @@ var scenes;
          * @return void
          */
         LevelTwo.prototype.addGround = function () {
-            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/ground.jpg');
+            this.groundTexture = new THREE.TextureLoader().load('../../Assets/images/whiteGround.jpg');
             this.groundTexture.wrapS = THREE.RepeatWrapping;
             this.groundTexture.wrapT = THREE.RepeatWrapping;
             this.groundTexture.repeat.set(8, 8);
-            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/ground.png');
+            this.groundTextureNormal = new THREE.TextureLoader().load('../../Assets/images/whiteGroundNormal.png');
             this.groundTextureNormal.wrapS = THREE.RepeatWrapping;
             this.groundTextureNormal.wrapT = THREE.RepeatWrapping;
             this.groundTextureNormal.repeat.set(8, 8);
@@ -146,13 +146,11 @@ var scenes;
         LevelTwo.prototype.addPlatform = function () {
             var _this = this;
             this.platformGeometry = new Geometry();
-            //this.platformMaterial = Physijs.createMaterial(new PhongMaterial());
-            //this.platform = new Physijs.ConvexMesh(this.platformGeometry, this.platformMaterial);
             var platformLoader = new THREE.JSONLoader().load("../../Assets/imported/level2Object.json", function (geometry) {
-                var phongMaterial = new PhongMaterial({ color: 0x50c878 });
-                phongMaterial.emissive = new THREE.Color(0x50c878);
+                var phongMaterial = new PhongMaterial({ color: 0xB0171F });
+                phongMaterial.emissive = new THREE.Color(0xCD0000);
                 _this.platform = new Physijs.ConvexMesh(geometry, phongMaterial, 0);
-                _this.platform.position.set(0, 0, 0);
+                _this.platform.position.set(0, 25, 0);
                 _this.platform.receiveShadow = true;
                 _this.platform.castShadow = true;
                 _this.platform.name = "Platform";
@@ -163,12 +161,94 @@ var scenes;
         //add finish box. when player collides the finish box, he wins and goes to viewPosition
         LevelTwo.prototype.addFinish = function () {
             this.finish = new Physijs.BoxMesh(new BoxGeometry(3, 2, 3), Physijs.createMaterial(new LambertMaterial({ map: THREE.ImageUtils.loadTexture('../Assets/images/finish.jpg') }), 0, 0), 0);
-            this.finish.position.set(-24.8, 1, 7.94);
+            this.finish.position.set(21, 19, 3);
             this.finish.receiveShadow = true;
             this.finish.castShadow = true;
             this.finish.name = "Finish";
             this.add(this.finish);
             console.log("Added finish to Scene");
+        };
+        // Adding Platform Cubes
+        LevelTwo.prototype.addPlatformCube = function () {
+            var phongMaterial = new PhongMaterial({ color: 0x50c878 });
+            phongMaterial.emissive = new THREE.Color(0x50c878);
+            this.cube1 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 2), phongMaterial, 0);
+            this.cube1.position.set(0, 1, -4.75);
+            this.cube1.receiveShadow = true;
+            this.cube1.castShadow = true;
+            this.cube1.name = "cube";
+            this.add(this.cube1);
+            console.log("Added cube1 to Scene");
+            this.cube2 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 2), phongMaterial, 0);
+            this.cube2.position.set(2.5, 2.7, -5.4);
+            this.cube2.receiveShadow = true;
+            this.cube2.castShadow = true;
+            this.cube2.name = "cube";
+            this.add(this.cube2);
+            console.log("Added cube2 to Scene");
+            this.cube3 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 2), phongMaterial, 0);
+            this.cube3.position.set(-0.0345, 6.21, -7.3);
+            this.cube3.receiveShadow = true;
+            this.cube3.castShadow = true;
+            this.cube3.name = "cube";
+            this.add(this.cube3);
+            console.log("Added cube3 to Scene");
+            this.cube4 = new Physijs.BoxMesh(new BoxGeometry(3, 4, 3), phongMaterial, 0);
+            this.cube4.position.set(-3.32, 8.41, -3.07);
+            this.cube4.receiveShadow = true;
+            this.cube4.castShadow = true;
+            this.cube4.name = "cube";
+            this.add(this.cube4);
+            console.log("Added cube4 to Scene");
+            this.cube5 = new Physijs.BoxMesh(new BoxGeometry(4, 2, 2), phongMaterial, 0);
+            this.cube5.position.set(-3.32, 10, 0.38);
+            this.cube5.receiveShadow = true;
+            this.cube5.castShadow = true;
+            this.cube5.name = "cube";
+            this.add(this.cube5);
+            console.log("Added cube5 to Scene");
+            this.cube6 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 2), phongMaterial, 0);
+            this.cube6.position.set(-3.33, 11.62, 4.06);
+            this.cube6.receiveShadow = true;
+            this.cube6.castShadow = true;
+            this.cube6.name = "cube";
+            this.add(this.cube6);
+            console.log("Added cube6 to Scene");
+            this.cube7 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 2), phongMaterial, 0);
+            this.cube7.position.set(-2, 13, 6.7);
+            this.cube7.receiveShadow = true;
+            this.cube7.castShadow = true;
+            this.cube7.name = "cube";
+            this.add(this.cube7);
+            console.log("Added cube7 to Scene");
+            this.cube8 = new Physijs.BoxMesh(new BoxGeometry(4, 2, 8), phongMaterial, 0);
+            this.cube8.position.set(1.74, 14, 11);
+            this.cube8.receiveShadow = true;
+            this.cube8.castShadow = true;
+            this.cube8.name = "cube";
+            this.add(this.cube8);
+            console.log("Added cube8 to Scene");
+            this.cube9 = new Physijs.BoxMesh(new BoxGeometry(8, 2, 2), phongMaterial, 0);
+            this.cube9.position.set(6.67, 14.9, 3.35);
+            this.cube9.receiveShadow = true;
+            this.cube9.castShadow = true;
+            this.cube9.name = "cube";
+            this.add(this.cube9);
+            console.log("Added cube9 to Scene");
+            this.cube10 = new Physijs.BoxMesh(new BoxGeometry(2, 2, 8), phongMaterial, 0);
+            this.cube10.position.set(13.8, 15.7, 1.7);
+            this.cube10.receiveShadow = true;
+            this.cube10.castShadow = true;
+            this.cube10.name = "cube";
+            this.add(this.cube10);
+            console.log("Added cube10 to Scene");
+            this.cube11 = new Physijs.BoxMesh(new BoxGeometry(6, 2, 6), phongMaterial, 0);
+            this.cube11.position.set(21, 18, 3);
+            this.cube11.receiveShadow = true;
+            this.cube11.castShadow = true;
+            this.cube11.name = "cube";
+            this.add(this.cube11);
+            console.log("Added cube11 to Scene");
         };
         /**
          * Adds the player controller to the scene
@@ -178,7 +258,7 @@ var scenes;
          */
         LevelTwo.prototype.addPlayer = function () {
             // Player Object
-            this.playerGeometry = new BoxGeometry(2, 4, 2);
+            this.playerGeometry = new BoxGeometry(2, 2, 2);
             this.playerMaterial = Physijs.createMaterial(new LambertMaterial({ color: 0x00ff00 }), 0.4, 0);
             this.player = new Physijs.BoxMesh(this.playerGeometry, this.playerMaterial, 1);
             this.player.position.set(22, 15, -0.33);
@@ -204,18 +284,6 @@ var scenes;
             this.deathPlane.position.set(0, -10, 0);
             this.deathPlane.name = "DeathPlane";
             this.add(this.deathPlane);
-        };
-        /**
-         * This method randomly sets the coin object's position
-         *
-         * @method setCoinPosition
-         * @return void
-         */
-        LevelTwo.prototype.setCrystalPosition = function (crystal) {
-            var randomPointX = Math.floor(Math.random() * 30) - 10;
-            var randomPointZ = Math.floor(Math.random() * 30) - 10;
-            crystal.position.set(randomPointX, 10, randomPointZ);
-            this.add(crystal);
         };
         /**
          * Event Handler method for any pointerLockChange events
@@ -290,8 +358,9 @@ var scenes;
                     }
                     if (this.keyboardControls.jump) {
                         this.velocity.y += 4000.0 * delta;
-                        if (this.player.position.y > 4) {
+                        if (this.player.position.y > (4 + this.currentObject.position.y)) {
                             this.isGrounded = false;
+                            this.velocity.y = 0;
                             createjs.Sound.play("jump");
                         }
                     }
@@ -399,20 +468,20 @@ var scenes;
             this.addPlayer();
             // Add custom object imported from blender
             this.addPlatform();
+            this.addPlatformCube();
             // Add death plane to the scene
             this.addDeathPlane();
             // Collision Check with player
             this.player.addEventListener('collision', function (eventObject) {
                 if (eventObject.name === "Ground") {
                     self.isGrounded = true;
+                    this.currentObject = eventObject;
                     createjs.Sound.play("hit");
                 }
-                if (eventObject.name === "Crystal") {
-                    timeValue += 5;
-                    self.remove(eventObject);
-                    self.setCrystalPosition(eventObject);
-                    self.timeLabel.text = "TIME: " + timeValue.toFixed(3);
-                    createjs.Sound.play("crystal");
+                if (eventObject.name === "cube") {
+                    self.isGrounded = true;
+                    this.currentObject = eventObject;
+                    createjs.Sound.play("hit");
                 }
                 if (eventObject.name === "DeathPlane") {
                     createjs.Sound.play("enemy");
