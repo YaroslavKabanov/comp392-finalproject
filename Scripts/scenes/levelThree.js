@@ -335,7 +335,7 @@ var scenes;
          * @return void
          */
         LevelThree.prototype.setCrystalPosition = function (crystal) {
-            var randomPointX = 34.64;
+            var randomPointX = -13.94;
             var randomPointZ = -0.05;
             crystal.position.set(randomPointX, 10, randomPointZ);
             this.add(crystal);

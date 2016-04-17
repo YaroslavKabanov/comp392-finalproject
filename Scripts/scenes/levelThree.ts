@@ -462,7 +462,7 @@ module scenes {
          * @return void
          */
         private setCrystalPosition(crystal: Physijs.ConvexMesh): void {
-            var randomPointX: number = 34.64;
+            var randomPointX: number = -13.94;
             var randomPointZ: number = -0.05;
             crystal.position.set(randomPointX, 10, randomPointZ);
             this.add(crystal);
