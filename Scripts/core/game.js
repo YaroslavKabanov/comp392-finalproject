@@ -81,7 +81,8 @@ var manifest = [
     { id: "InstructionImage", src: "../../Assets/images/instruction1.png" },
     { id: "menuBackground", src: "../../Assets/images/maxresdefault1.jpg" },
     { id: "gameover", src: "../../Assets/images/gameover.jpg" },
-    { id: "mainmenu", src: "../../Assets/images/mainmenu.png" }
+    { id: "mainmenu", src: "../../Assets/images/mainmenu.png" },
+    { id: "win", src: "../../Assets/images/win.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();

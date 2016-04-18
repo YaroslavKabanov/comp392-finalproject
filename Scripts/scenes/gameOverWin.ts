@@ -15,7 +15,7 @@ module scenes {
         private _scoreLabel: createjs.Text;
         private _highScoreLabel: createjs.Text;
         private _restartButton: createjs.Bitmap;
-        private _gameoverBackground: createjs.Bitmap;
+        private _gameWinBackground: createjs.Bitmap;
         
         private spotLight: SpotLight;
         
@@ -132,18 +132,18 @@ module scenes {
             this._gameOverLabel.y = (config.Screen.HEIGHT * 0.5) - 100;
             this._stage.addChild(this._gameOverLabel);
             
-            this._gameoverBackground = new createjs.Bitmap(assets.getResult("gameover"));
-            this._gameoverBackground.regX = this._gameoverBackground.getBounds().width * 0.5;
-            this._gameoverBackground.regY = this._gameoverBackground.getBounds().height * 0.5;
-            this._gameoverBackground.x = config.Screen.WIDTH * 0.5 ;
-            this._gameoverBackground.y = config.Screen.HEIGHT * 0.5;
-            this._stage.addChild(this._gameoverBackground);
+            this._gameWinBackground = new createjs.Bitmap(assets.getResult("win"));
+            this._gameWinBackground.regX = this._gameWinBackground.getBounds().width * 0.5;
+            this._gameWinBackground.regY = this._gameWinBackground.getBounds().height * 0.5;
+            this._gameWinBackground.x = config.Screen.WIDTH * 0.5 ;
+            this._gameWinBackground.y = config.Screen.HEIGHT * 0.5;
+            this._stage.addChild(this._gameWinBackground);
            
             this._restartButton = new createjs.Bitmap(assets.getResult("mainmenu"));
             this._restartButton.regX = this._restartButton.getBounds().width * 0.5;
             this._restartButton.regY = this._restartButton.getBounds().height * 0.5;
             this._restartButton.x = config.Screen.WIDTH * 0.5;
-            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 150;
+            this._restartButton.y = (config.Screen.HEIGHT * 0.5) + 200;
             this._stage.addChild(this._restartButton);
 
             this._restartButton.on("mouseover", (event: createjs.MouseEvent) => {
