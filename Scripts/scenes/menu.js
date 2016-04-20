@@ -97,7 +97,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._startButton.on("click", function (event) {
-                currentScene = config.Scene.INTERMEDIATE;
+                currentScene = config.Scene.LEVELONE;
                 changeScene();
             });
             //Instruction Button

@@ -115,7 +115,7 @@ module scenes {
             });
 
             this._startButton.on("click", (event: createjs.MouseEvent) => {
-                currentScene = config.Scene.INTERMEDIATE;
+                currentScene = config.Scene.LEVELONE;
                 changeScene();
             });
             //Instruction Button
