@@ -23,7 +23,7 @@ module scenes {
     export class Intermediate extends scenes.Scene {
         private _blocker: HTMLElement;
         private _stage: createjs.Stage;
-        private _gameLabel: createjs.Text;
+        private _instruction: createjs.Bitmap;
         private _startButton: createjs.Bitmap;
         private _instructionsButton: createjs.Bitmap;
         private _exitButton: createjs.Bitmap;
@@ -62,15 +62,14 @@ module scenes {
          */
         public start(): void {
 
-            this._gameLabel = new createjs.Text(
-                "Well Done!",
-                "80px Consolas",
-                "#000000");
-            this._gameLabel.regX = this._gameLabel.getMeasuredWidth() * 0.5;
-            this._gameLabel.regY = this._gameLabel.getMeasuredLineHeight() * 0.5;
-            this._gameLabel.x = config.Screen.WIDTH * 0.5;
-            this._gameLabel.y = config.Screen.HEIGHT * 0.5 - 150;
-            this._stage.addChild(this._gameLabel);
+            //Instruction Images
+            this._instruction = new createjs.Bitmap(assets.getResult("IntermediateImage1"));
+            this._instruction.regX = this._instruction.getBounds().width * 0.5;
+            this._instruction.regY = this._instruction.getBounds().height * 0.5;
+            this._instruction.x = config.Screen.WIDTH * 0.5 ;
+            this._instruction.y = config.Screen.HEIGHT * 0.5;
+            this._stage.addChild(this._instruction);
+            
             //play button
             this._startButton = new createjs.Bitmap(assets.getResult("StartButton"));
             this._startButton.regX = this._startButton.getBounds().width * 0.5;

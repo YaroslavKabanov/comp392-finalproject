@@ -80,6 +80,8 @@ var manifest = [
     { id: "ExitButton", src: "../../Assets/images/ExitButton1.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
     { id: "InstructionImage", src: "../../Assets/images/instruction1.png" },
+    { id: "IntermediateImage1", src: "../../Assets/images/intermediate1.png" },
+    { id: "IntermediateImage2", src: "../../Assets/images/intermediate2.png" },
     { id: "menuBackground", src: "../../Assets/images/maxresdefault1.jpg" },
     { id: "gameover", src: "../../Assets/images/gameover.jpg" },
     { id: "mainmenu", src: "../../Assets/images/mainmenu.png" },
