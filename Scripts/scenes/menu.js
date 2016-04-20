@@ -82,7 +82,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._startButton.on("click", function (event) {
-                currentScene = config.Scene.LEVELTHREE;
+                currentScene = config.Scene.LEVELONE;
                 changeScene();
             });
             //Instruction Button
@@ -116,7 +116,7 @@ var scenes;
                 event.target.alpha = 1.0;
             });
             this._exitButton.on("click", function (event) {
-                currentScene = config.Scene.LEVELTWO;
+                currentScene = config.Scene.GAMEOVERWIN;
                 changeScene();
             });
         };

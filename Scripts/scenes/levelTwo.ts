@@ -3,6 +3,21 @@
  * 
  * @module scenes
  */
+//*********************************************************************
+//Source file: levelTwo.ts                                            *
+//Authors names:Yaroslav Kabanov                                      *
+//              Kateryna Bilokhvost                                   *
+//              Milan Verma                                           *
+//Initial commit: March 10, 2016                                      *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: March 24, 2016                                  *
+//Commit history: GitHub Link:https://github.com/YaroslavKabanov/     *
+//comp392-finalproject/                                               *
+//Program description: This is the basic Three.js based first         *
+//person perspective game which is challenging player to escape       *
+//the mysterious maze with numerous traps before the time             *
+// elapses. Bonus items are hidden in the maze for extra time.        *
+//*********************************************************************
 module scenes {
     /**
      * The Play class is where the main action occurs for the game
